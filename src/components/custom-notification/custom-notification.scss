@@ -1,0 +1,19 @@
+custom-notification {
+	i{
+		color: color($colors, gold);
+		font-size: 2.3rem;
+	}
+	p{
+		color: color($colors, black) !important;
+		&.title{
+			font-size: 1.7rem;
+		}
+		&.description{
+			padding: 0 16px;
+		}
+	}
+
+	img{
+		padding: 0 16px;
+	}
+}

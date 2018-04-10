@@ -1,0 +1,95 @@
+page-survey-form {
+	ion-list{
+		margin-bottom: 0 !important;
+		&.list-borders{
+			padding-top: 200px;
+		}
+		&.content-form{
+			display: block;
+			width: 100%;
+			position: fixed;
+			background-color: color($colors, white);
+			z-index: 3;
+			top: 57px;
+			padding: 15px 16px 0;
+			border: 0 !important;
+			.item-block:first-child{
+				border-top: 0 !important;
+			}
+			.item-block{
+				position: relative;
+				border-bottom: 1px solid color($colors, grey) !important;
+				box-shadow: none !important;
+				&:before{
+					left: 0;
+					position: absolute;
+					margin-right: 10px;
+					font-size: 1.5rem;
+					color: color($colors, grey);
+				}
+				.text-input{
+					margin-left: 0 !important;
+					width: calc( 100% - 8px );
+					&[disabled]{
+						opacity: 1 !important;
+					}
+				}
+				.item-inner{
+					border-bottom: 0 !important;
+					box-shadow: none !important;
+					ion-label{
+						color: color($colors, grey);
+					}
+					ion-input{
+						color: color($colors, black);
+					}
+					ion-textarea{
+						height: 100px;
+					}
+				}
+			}
+			button{
+				float: right;
+				margin-top: 10px;
+				margin-bottom: 15px;
+				background-color: transparent;
+				ion-icon{
+					color: color($colors, gold);
+					font-size: 2rem;
+				}
+			}
+		}
+	}
+
+	h2.subtitle{
+		background-color: color($colors, gold);
+		color: color($colors, white);
+		font-family: 'Century';
+		text-transform: uppercase;
+		position: fixed;
+		display: block;
+		float: left;
+		width: 100%;
+		margin-top: 0;
+		margin-bottom: 0;
+		padding: 7px 16px;
+		font-size: 1.8rem;
+		top: 220px;
+		z-index: 3;
+	}
+}
+
+
+.ios{
+	page-survey-form {
+		h2.subtitle{
+			top: 237px;
+		}
+
+		ion-list{
+			&.content-form{
+				top: 74px;
+			}
+		}
+	}
+}

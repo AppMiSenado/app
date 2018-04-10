@@ -1,0 +1,95 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "cordova-plugin-ionic-webview@^1.1.11",
+        "scope": null,
+        "escapedName": "cordova-plugin-ionic-webview",
+        "name": "cordova-plugin-ionic-webview",
+        "rawSpec": "^1.1.11",
+        "spec": ">=1.1.11 <2.0.0",
+        "type": "range"
+      },
+      "/Users/david/Documents/mi_senado_v2/node_modules"
+    ]
+  ],
+  "_from": "cordova-plugin-ionic-webview@>=1.1.11 <2.0.0",
+  "_id": "cordova-plugin-ionic-webview@1.1.16",
+  "_inCache": true,
+  "_location": "/cordova-plugin-ionic-webview",
+  "_nodeVersion": "8.7.0",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/cordova-plugin-ionic-webview-1.1.16.tgz_1508486264927_0.47728348174132407"
+  },
+  "_npmUser": {
+    "name": "manucorporat",
+    "email": "manu.mtza@gmail.com"
+  },
+  "_npmVersion": "5.4.2",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "cordova-plugin-ionic-webview@^1.1.11",
+    "scope": null,
+    "escapedName": "cordova-plugin-ionic-webview",
+    "name": "cordova-plugin-ionic-webview",
+    "rawSpec": "^1.1.11",
+    "spec": ">=1.1.11 <2.0.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-ionic-webview/-/cordova-plugin-ionic-webview-1.1.16.tgz",
+  "_shasum": "92d5f2e4a5a829f91b487b1761848765a31c9f1e",
+  "_shrinkwrap": null,
+  "_spec": "cordova-plugin-ionic-webview@^1.1.11",
+  "_where": "/Users/david/Documents/mi_senado_v2/node_modules",
+  "author": {
+    "name": "Ionic Team"
+  },
+  "bugs": {
+    "url": "https://github.com/ionic-team/cordova-plugin-ionic-webview/issues"
+  },
+  "dependencies": {},
+  "description": "The official Ionic's WKWebView Engine Plugin",
+  "devDependencies": {
+    "np": "^2.16.0",
+    "sync-cordova-xml": "^0.4.0"
+  },
+  "directories": {},
+  "dist": {
+    "integrity": "sha512-57EW4qNkKyCfcVt0pH11s88Dvwdtgf2UkbAyPNk2+T1cmLVQ503S/+3Wa3l173J0NGt/QGGyUM8Z66LkqTnoWg==",
+    "shasum": "92d5f2e4a5a829f91b487b1761848765a31c9f1e",
+    "tarball": "https://registry.npmjs.org/cordova-plugin-ionic-webview/-/cordova-plugin-ionic-webview-1.1.16.tgz"
+  },
+  "gitHead": "41626521c1aab40f608acc09972ebbe1fca72d21",
+  "homepage": "https://github.com/ionic-team/cordova-plugin-ionic-webview#readme",
+  "keywords": [
+    "cordova",
+    "wkwebview"
+  ],
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "manucorporat",
+      "email": "manu.mtza@gmail.com"
+    }
+  ],
+  "name": "cordova-plugin-ionic-webview",
+  "optionalDependencies": {},
+  "readme": "<!--\n# license: Licensed to the Apache Software Foundation (ASF) under one\n#         or more contributor license agreements.  See the NOTICE file\n#         distributed with this work for additional information\n#         regarding copyright ownership.  The ASF licenses this file\n#         to you under the Apache License, Version 2.0 (the\n#         \"License\"); you may not use this file except in compliance\n#         with the License.  You may obtain a copy of the License at\n#\n#           http://www.apache.org/licenses/LICENSE-2.0\n#\n#         Unless required by applicable law or agreed to in writing,\n#         software distributed under the License is distributed on an\n#         \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY\n#         KIND, either express or implied.  See the License for the\n#         specific language governing permissions and limitations\n#         under the License.\n-->\n\nIonic's Webview\n======\n\nThis plugin is an extension of the [Apache Cordova WKWebView plugin](https://github.com/apache/cordova-plugin-wkwebview-engine). It includes enhancements to resolve some of the issues surrounding XHR requests, along with some DOM exception issues.\n\nThis plugin only supports iOS 9 and above and will fall back to UIWebView on iOS 8.\n\nThe WKWebView plugin is only used by iOS, so ensure the `cordova-ios` platform is installed. Additionly, the `cordova-ios` platform version must be `4.0` or greater.\n\nInstallation Instructions\n-------------------\n\nEnsure the latest Cordova CLI is installed:  (Sudo may be required)\n\n```\nnpm install cordova -g\n```\n\nEnsure the `ios` platform has been added:\n\n```\nionic cordova platform ls\n```\n\nIf the iOS platform is not listed, run the following command:\n\n```\nionic cordova platform add ios\n```\n\nIf the iOS platform is installed but the version is < `4.x`, run the following commands:\n\n```\nionic cordova platform update ios\nionic cordova plugin save           # creates backup of existing plugins\nrm -rf ./plugins            # delete plugins directory\nionic cordova prepare               # re-install plugins compatible with cordova-ios 4.x\n```\n\nInstall the WKWebViewPlugin:\n\n```\nionic cordova plugin add cordova-plugin-ionic-webview --save\n```\n\n**Note:**\n\nIf you already had [apache/cordova-plugin-wkwebview-engine](https://github.com/apache/cordova-plugin-wkwebview-engine) install make sure that is removed before using this version.\n\n```\nionic cordova plugin rm cordova-plugin-wkwebview-engine\n```\n\n\nBuild the platform:\n\n```\nionic cordova prepare\n```\n\nTest the app on an iOS 9 or 10 device:\n\n```\nionic cordova run ios\n```\n\n\nRequired Permissions\n-------------------\nWKWebView may not fully launch (the deviceready event may not fire) unless if the following is included in config.xml:\n#### config.xml\n```\n<allow-navigation href=\"http://localhost:8080/*\"/>\n<feature name=\"CDVWKWebViewEngine\">\n  <param name=\"ios-package\" value=\"CDVWKWebViewEngine\" />\n</feature>\n\n<preference name=\"CordovaWebViewEngine\" value=\"CDVWKWebViewEngine\" />\n```\n\nApplication Transport Security (ATS) in iOS 9\n-----------\n\nThe next released version of the [cordova-cli 5.4.0](https://www.npmjs.com/package/cordova) will support automatic conversion of the [&lt;access&gt;](http://cordova.apache.org/docs/en/edge/guide/appdev/whitelist/index.html) tags in config.xml to Application Transport Security [ATS](https://developer.apple.com/library/prerelease/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW33) directives. Upgrade to the version 5.4.0 to use this new functionality.\n\nApple Issues\n-------\n\nThe `AllowInlineMediaPlayback` preference will not work because of this [Apple bug](http://openradar.appspot.com/radar?id=6673091526656000). This bug [has been fixed](https://issues.apache.org/jira/browse/CB-11452) in [iOS 10](https://twitter.com/shazron/status/745546355796389889).\n\nLimitations\n--------\n\nThere are several [known issues](https://issues.apache.org/jira/issues/?jql=project%20%3D%20CB%20AND%20labels%20%3D%20wkwebview-known-issues) with the official Cordova WKWebView plugin. The Ionic team thinks we have resolved several of the major issues. Please [let us know](https://github.com/driftyco/cordova-plugin-wkwebview-engine/issues) if something isn't working as expected.\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ionic-team/cordova-plugin-ionic-webview.git"
+  },
+  "scripts": {
+    "deploy": "np --yolo",
+    "sync_plugin_xml": "sync-cordova-xml package.json plugin.xml --output=plugin.xml",
+    "version": "npm run sync_plugin_xml && git add plugin.xml"
+  },
+  "version": "1.1.16"
+}

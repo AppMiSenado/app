@@ -1,0 +1,155 @@
+page-senator-profile {
+	ion-grid{
+		text-align: left;
+		padding: 25px 16px !important;
+		#content-image{
+			display: inline-block;
+			float: left;
+			position: relative;
+			width: 90px;
+			.senator{
+				border-radius: 100%;
+				width: 65px;
+				height: 65px;
+				box-shadow: 3px 0px 15px rgba(0, 0, 0, 0.3);
+			}
+			.party{
+				position: absolute;
+				border-radius: 100%;
+				width: 30px;
+				height: 30px;
+				top: 45px;
+				left: 45px;
+			}
+		}
+
+		h2{
+			margin: 0;
+			color: color($colors, white);
+			font-size: 2rem;
+			font-family: 'Century';
+		}
+
+		p{
+			margin: 0;
+			color: color($colors, white);
+			font-size: 1.5rem;
+		}
+	}
+
+	ion-list{
+		margin-bottom: 25px !important;
+		ion-icon{
+			font-size: 2rem;
+			color: color($colors, gold);
+			margin-right: 10px;
+			&.icon-sobre{
+				font-size: 1.6rem;
+			}
+		}
+	}
+
+	h3{
+		text-transform: uppercase;
+		font-size: 2.5rem;
+		font-family: 'Century';
+		color: color($colors, white);
+		margin-top: 25px;
+	}
+
+	.spinner line{
+		stroke: color($colors, white)
+	}
+
+	.social-feed-element{
+		background-color: rgba(color($colors, white), 0.3);
+    margin-top: 0px;
+    color: color($colors, white);
+    text-align:left;
+    font-size: 14px;
+    line-height: 16px;
+		border-bottom: 1px solid color($colors, white);
+		&:first-child {
+			border-top: 1px solid color($colors, white);
+	    margin-top: 0;
+		}
+		&:last-child{
+			border-bottom: 0 !important;
+		}
+		.pull-left{
+	    float:left;
+	    margin-right: 10px;
+	  }
+	  .pull-right {
+		  margin-left: 10px;
+		}
+		img {
+	    width: 100%;
+	    width: auto\9;
+	    height: auto;
+	    border: 0;  
+	    vertical-align: middle;
+	    -ms-interpolation-mode: bicubic;
+		}
+		.attachment {
+			padding: 0 15px 15px;
+	    vertical-align: middle;
+		  -ms-interpolation-mode: bicubic;
+		}
+		a {
+	    color: color($colors, white);
+	    text-decoration: none;
+		}
+		small {
+		  font-size: 85%;
+		}
+		strong {
+		  font-weight: 'Century';
+		}
+		em {
+		  font-style: italic;
+		}
+		p {
+		  margin: 0 0 10px;
+		}
+		.media-body{
+			overflow: hidden;
+	    zoom: 1;
+	    *overflow: visible;
+		 	p{
+		    margin-bottom:4px;
+			  min-height:20px;
+			}
+			.social-network-icon{
+		    font-size: 1.7rem;
+			}
+			div{
+		    color:#666;
+		    line-height: 20px;
+			}
+		}
+		p.social-feed-text {
+	    margin: 0;
+	    overflow: hidden;
+	    font-size: 1.7rem;
+	    text-overflow: ellipsis;
+	    -webkit-line-clamp: 5;
+	    -webkit-box-orient: vertical;
+		}
+		.media-object {
+	    display: block;
+	    width:48px;
+	    border-radius:50%;
+		}
+		.media-heading {
+	    margin: 0 0 5px;
+		}
+		.media-list {
+	    margin-left: 0;
+	    list-style: none;
+		}
+		.content{
+	    padding:15px;
+		}
+	}
+}

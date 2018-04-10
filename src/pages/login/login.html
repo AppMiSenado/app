@@ -1,0 +1,28 @@
+<ion-content no-bounce  padding class="background-image">
+	<h2 id="title">Ingrese utilizando las redes sociales</h2>
+	
+	<button ion-button class="social" (click)="loginFacebook()"><ion-icon class="icon-facebook"></ion-icon></button>
+	<button ion-button class="social" (click)="loginTwitter()"><ion-icon class="icon-twitter"></ion-icon></button>
+
+	<ion-list no-lines class="form-senado">
+		<ion-item>
+	    <ion-input type="email" placeholder="Correo electrónico" [(ngModel)]="form.email" clearInput></ion-input>
+	  </ion-item>
+
+	  <ion-item>
+	    <ion-input type="password" placeholder="Contraseña" [(ngModel)]="form.password" clearInput></ion-input>
+	  </ion-item>
+	</ion-list>
+
+	<button ion-button class="button-big" (click)="doLogin()" [disabled]="!form.email || !form.password || !validateEmail(form.email)">Ingresar</button><br>
+	
+	<button ion-button clear class="button-clear" (click)="goRecover()">Recuperar contraseña</button>
+
+	<hr>
+	
+	<button ion-button class="button-big" (click)="goSignup()">Registrarse</button>
+
+	<br><br>
+
+	<button ion-button clear class="button-clear" (click)="goHome()">Segir sin registrarse</button>
+</ion-content>

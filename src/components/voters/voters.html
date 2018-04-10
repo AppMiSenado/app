@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button clear (click)="dismiss()">
+      <ion-icon name="menu" class="icon-flecha3"></ion-icon>
+      <div class="title">Votantes por el 
+				<ng-container *ngIf="vote">SI</ng-container>
+				<ng-container *ngIf="!vote">NO</ng-container>
+      </div>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-bounce >
+	<ion-list no-lines class="list-borders">
+
+		<ion-item text-wrap *ngFor="let item of senators">
+			<ion-avatar item-start>
+	      <img-loader useImg [spinner]="false" [src]="item.senator.image"></img-loader>
+	    </ion-avatar>
+	    <h2>{{ item.senator.fullname }}</h2>
+	    <i class="icon-state icon-voto-si" item-end *ngIf="item.vote == true"></i>
+	    <i class="icon-state icon-voto-no" item-end *ngIf="item.vote == false"></i>
+	  </ion-item> 
+	 
+	</ion-list>
+</ion-content>

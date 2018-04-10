@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar>
+  	<ion-buttons start class="fake-back">
+      <button ion-button  clear (click)="back()">
+        <ion-icon name="menu" class="icon-flecha3"></ion-icon>
+      </button>
+    </ion-buttons>
+    
+    <button ion-button menuToggle>
+      <ion-icon class="icon-hamburguesa"></ion-icon>
+      <span class="title">Proyectos de discusión</span>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-bounce >
+	<ion-list no-lines class="list-borders">
+
+		<button ion-item text-wrap (click)="showResume(bill)" *ngFor="let bill of bills">
+			<ion-icon class="icon-estado state green" item-start
+								*ngIf="bill.status == 1">			
+			</ion-icon>
+
+	    <ion-icon class="icon-depie state yellow" item-start
+								*ngIf="bill.status == 2">		
+			</ion-icon>
+
+	   	<ion-icon class="icon-parar state red" item-start
+	    	 				*ngIf="bill.status == 3">			
+			</ion-icon>
+	    <h2>{{ bill.name }}</h2>
+	    <p [class.green]="bill.status == 1"
+	    	 [class.yellow]="bill.status == 2"
+	    	 [class.red]="bill.status == 3">
+	    	<ng-container *ngIf="bill.status == 1">
+	    		En discusión
+	    	</ng-container>
+	    	<ng-container *ngIf="bill.status == 2">
+	    		Por discutir
+	    	</ng-container>
+	    	<ng-container *ngIf="bill.status == 3">
+	    		Discutido
+	    	</ng-container>
+	    </p>
+	  </button>
+	 
+	</ion-list>
+</ion-content>

@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar>
+  	<ion-buttons start class="fake-back">
+      <button ion-button  clear (click)="back()">
+        <ion-icon name="menu" class="icon-flecha3"></ion-icon>
+      </button>
+    </ion-buttons>
+    
+    <button ion-button menuToggle>
+      <ion-icon class="icon-hamburguesa"></ion-icon>
+      <span class="title">Historial de votación</span>
+    </button>
+  </ion-navbar>
+
+  <ion-searchbar
+	  [(ngModel)]="search"
+	  [showCancelButton]="shouldShowCancel"
+	  (ionCancel)="onCancel($event)"
+	  placeholder = "Buscar">
+	</ion-searchbar>
+</ion-header>
+
+
+<ion-content no-bounce >
+
+	<ion-list no-lines class="list-borders">
+
+		<ion-item text-wrap *ngFor="let project of projects | search:'projectname,date':search">
+			<ion-note>{{ project.date | date }}</ion-note>
+	    <h2>{{ project.projectname }}</h2>
+	    <i class="icon-state icon-voto-si" item-end *ngIf="project.vote == 1"></i>
+	    <i class="icon-state icon-voto-no" item-end *ngIf="project.vote == 0"></i>
+	  </ion-item> 
+	 
+	</ion-list>
+
+</ion-content>

@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon class="icon-hamburguesa"></ion-icon>
+      <span class="title">Curules</span>
+    </button>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="showConventions()">
+        <ion-icon class="icon-info"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-bounce>
+	<div class="p-fixed">  
+    <p class="subtitle-map">Seleccione un sector</p>
+    <div class="svg-container">
+      
+      <img id="shadow" [src]="shadowImage">
+      <img usemap="#map" src="assets/images/0.png" id="sectors">
+      <map name="map">
+        <area shape="poly" coords="123,190,84,235,0,235,0,84" (click)="goToArea(1)">
+        <area shape="poly" coords="123,189,166,162,166,0,0,0,0,83" (click)="goToArea(2)">
+        <area shape="poly" coords="167,162,213,187,330,85,330,1,167,0" (click)="goToArea(3)">
+        <area shape="poly" coords="213,188,254,235,331,235,331,85" (click)="goToArea(4)">
+        <area shape="rect" coords="98,176,205,214" (click)="goToArea(5)">
+      </map>
+    
+      <svg viewBox="0 0 5631 3896" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <g id="seats" transform="translate(-31.000000, -25.000000)">
+                  <circle *ngFor="let senator of seats" [attr.cx]="senator.seat.svg.cx" [attr.cy]="senator.seat.svg.cy" [attr.fill]="senator.seat.svg.fill" [attr.id]="senator.seat.id" [attr.r]="senator.seat.svg.r" [attr.transform]="senator.seat.svg.transform"/>
+              </g>
+          </g>
+      </svg>
+    </div>
+  </div>
+
+	<ion-list no-lines class="list-borders" approxItemHeight="70px">
+
+		<button ion-item *ngFor="let senator of senators" (click)="showSenator(senator)">
+	    <ion-avatar item-start>
+	      <img-loader useImg [spinner]="false" [src]="senator.image" [style.borderColor]="senator.seat.svg.fill"></img-loader>
+	    </ion-avatar>
+	    <h2>{{ senator.fullname }}</h2>
+	    <p>{{ senator.party.name }}</p>
+	  </button> 
+	 
+	</ion-list>
+</ion-content>

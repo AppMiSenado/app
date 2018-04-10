@@ -1,0 +1,89 @@
+page-seats {
+	.p-fixed {
+	  display: block;
+	  float: left;
+	  width: 100%;
+	  background-color: #fff;
+	  position: fixed;
+	  z-index: 2; 
+	  top: 56px;
+	}
+
+	.svg-container {
+	  display: block;
+	  float: none;
+	  width: 314px;
+	  max-width: 100%;
+	  padding: 0 15px;
+	  margin: 0 auto 20px;
+	  position: relative;
+	  -webkit-transform: rotate(-180deg);
+	  transform: rotate(-180deg); 
+	}
+
+	.svg-container svg {
+	  position: relative;
+	  z-index: 3; }
+
+	.svg-container img#sectors {
+	  display: block;
+	  float: left;
+	  width: 97%;
+	  position: absolute;
+	  bottom: 6px;
+	  left: -1px;
+	  opacity: 0;
+	  z-index: 9; 
+	}
+
+	.svg-container img#shadow {
+	  display: block;
+	  float: left;
+	  width: 97%;
+	  position: absolute;
+	  bottom: -1px;
+	  right: 4px;
+	  opacity: 0.5;
+	  z-index: 1; 
+	}
+
+	.subtitle-map {
+	  width: 100%;
+	  text-align: center;
+	  margin-top: 15px;
+	  margin-bottom: 15px; 
+	}
+	
+	ion-list{
+		padding-top: 269px;
+		margin-bottom: 0 !important;
+		.item-block:first-child{
+			border-top: 1px solid color($colors, gold) !important;
+		}
+		img-loader{
+	    border-width: 2px;
+	    border-style: solid;
+	    border-radius: 100%;
+	    width: 40px;
+	    height: 40px;
+	    display: inline-block;
+		} 
+	}
+}
+
+.platform-android{
+	page-seats {
+		img-loader{
+			width: 44px !important;
+			height: 44px !important;
+		}
+	}	
+}
+
+.ios{
+	page-seats {
+		.p-fixed {
+			top: 74px;
+		}
+	}
+}

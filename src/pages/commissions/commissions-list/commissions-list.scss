@@ -1,0 +1,12 @@
+page-commissions-list {
+	.online{
+		width: 10px;
+		height: 10px;
+		background-color: color($colors, secondary);
+		border-radius: 100%;
+	}
+
+	ion-list{
+		margin-bottom: 0 !important;
+	}
+}

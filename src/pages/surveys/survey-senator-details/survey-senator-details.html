@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar>
+  	<ion-buttons start class="fake-back">
+      <button ion-button  clear (click)="back()">
+        <ion-icon name="menu" class="icon-flecha3"></ion-icon>
+      </button>
+    </ion-buttons>
+    
+    <button ion-button menuToggle>
+      <ion-icon class="icon-hamburguesa"></ion-icon>
+      <span class="title">Resultados encuesta</span>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-bounce >
+	<div id="question">
+		<p class="question">{{ question.question }}</p>
+	</div>
+	
+	<ng-container> 
+		<p class="answers dark">Hasta ahora sus seguidores han votado así</p>
+
+		<ion-grid>
+			<ion-row>
+				<ion-col col-6 class="content-chart">
+					<canvas #doughnutCanvasYes width="250"></canvas>
+					<p>{{ this.percentage.true }}%</p>
+					<strong>SI</strong>
+				</ion-col>
+				<ion-col col-6 class="content-chart">
+					<canvas #doughnutCanvasNo width="250"></canvas>
+					<p>{{ this.percentage.false }}%</p>
+					<strong>NO</strong>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+		
+	</ng-container>	
+		
+</ion-content>
+

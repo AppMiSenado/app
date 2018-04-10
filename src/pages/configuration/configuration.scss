@@ -1,0 +1,10 @@
+page-configuration {
+	.toggle-checked{
+		.toggle-icon{
+			background-color: lighten(color($colors, gold), 25%) !important;
+		}
+		.toggle-inner{
+			background-color: color($colors, gold) !important;
+		}
+	}
+}

@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon class="icon-hamburguesa"></ion-icon>
+      <span class="title">Proyectos de ley</span>
+    </button>
+  </ion-navbar>
+
+  <ion-searchbar
+	  [(ngModel)]="search"
+	  (ngModelChange)="doSearch($event)"
+	  [showCancelButton]="shouldShowCancel"
+	  (ionCancel)="onCancel($event)"
+	  placeholder = "Buscar">
+	</ion-searchbar>
+</ion-header>
+
+<ion-content no-bounce >
+	<ion-list no-lines class="list-borders" [virtualScroll]="billsFiltered" approxItemHeight="70px">
+
+		<button ion-item text-wrap (click)="goToLink(bill.link)" *virtualItem="let bill">
+			<ion-icon class="icon-estrella" [class.active]="bill.favorite" item-start (click)="toggleFavorite($event, bill)" *ngIf="isLogin && userType != 'senator'"></ion-icon>
+	    <h2>{{ bill.name }}</h2>
+	    <p>{{ bill.categories[0].name }}</p>
+	  </button> 
+	 
+	</ion-list>
+</ion-content>

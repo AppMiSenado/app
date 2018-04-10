@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button clear (click)="dismiss(false)">
+      <ion-icon name="menu" class="icon-flecha3"></ion-icon>
+      <div class="title">Registro</div>
+    </button>
+  </ion-navbar>
+
+  <ion-toolbar id="content-tabs">
+    <ion-segment [(ngModel)]="currentItem">
+      <ion-segment-button *ngFor="let item of items; let i = index" [value]="i" (click)="resizeContent(i)">
+        {{ item.name }}
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
+  <ion-searchbar
+    *ngIf="currentItem == 1 || currentItem == 3"
+    [(ngModel)]="search"
+    [showCancelButton]="shouldShowCancel"
+    (ionCancel)="onCancel()"
+    placeholder = "Buscar">
+  </ion-searchbar>
+
+</ion-header>
+
+<ion-content no-bounce >  
+  <ng-container *ngFor="let item of items; let i = index">  
+    <ng-container  *ngIf="currentItem == i">
+     <div class="options">
+        <button ion-button id="select-all" [class.active]="!selectAllState[item.name]"
+                (click)="selectAll(item.name, item.data, item.unique)"
+                *ngIf="!item.unique">
+          <ion-icon class="icon-circulo-check"></ion-icon>
+          <ng-container *ngIf="!selectAllState[item.name]">Seleccionar todos</ng-container> 
+          <ng-container *ngIf="selectAllState[item.name]">Desmarcar todos</ng-container>    
+        </button>
+
+        <button ion-item 
+                *ngFor="let option of item.data | search:'name':search"
+                [class.active]="validateOptionFilter(item.name, option.id, item.unique)"
+                (click)="toggleOptionFilter(item.name, option.id, item.unique)">
+ 
+          <ion-avatar item-start *ngIf="option.image">
+            <img-loader useImg [src]="option.image" useImg [spinner]="false"></img-loader>
+          </ion-avatar>
+          <h2>{{ option.name }}</h2>
+          <button ion-button clear item-end><ion-icon class="icon-circulo-check"></ion-icon></button>
+        </button>
+      </div>
+    </ng-container>   
+  </ng-container>   
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <button ion-button (click)="resizeContent(currentItem-1)" *ngIf="currentItem > 0">
+      Atrás
+    </button>
+
+    <button ion-button (click)="resizeContent(currentItem+1)" *ngIf="currentItem < items.length-1">
+      Siguiente
+    </button>
+
+    <button ion-button (click)="returnData()" *ngIf="currentItem == items.length-1">
+      Terminar
+    </button>
+
+    
+  </ion-toolbar>
+</ion-footer>
+

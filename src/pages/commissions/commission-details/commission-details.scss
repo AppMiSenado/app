@@ -1,0 +1,115 @@
+page-commission-details {
+	ion-navbar .title {
+		max-width: 170px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+	}
+	ion-list{
+		margin-bottom: 0 !important;
+	}
+	
+	#online{
+		background-color: color($colors, secondary);
+		color: color($colors, white);
+		text-transform: uppercase;
+		padding: 5px 16px;
+		font-family: 'Century';
+		font-size: 1.5rem; 
+		position: fixed;
+		top: 111px;
+		z-index: 4;
+		width: 100%;
+	}
+	ion-footer{
+		ion-toolbar,
+		ion-grid,
+		ion-row,
+		ion-col{
+			padding: 0 !important;
+		}
+		.item-inner{
+			border-bottom: 0 !important;
+			&:focus{
+				border-bottom: 0 !important;
+				box-shadow: none !important;
+			}
+		}
+		.input-has-focus{
+			.item-inner{
+				border-bottom: 0 !important;
+				box-shadow: none !important;
+			}
+		}
+		.toolbar-background{
+			border-top: 0 !important;
+		}
+		#input-comment{
+			textarea{
+				margin: 15px 8px 16px;
+			}
+			.text-input-ios { 
+		    width: calc(100% - 16px);	
+			}
+		}
+		.width-60{
+			width: 60px;
+			max-width: 60px;
+			button{
+				background-color: transparent !important;
+				position: relative;
+				top: 3px;
+				ion-icon{
+					color: #000;
+				}
+			}
+		}
+	}
+
+	#current-video{
+		top: 112px !important;
+	}
+
+	#history-streaming{
+		.item-block{
+			&.active{
+				background-color: lighten(color($colors, gold), 42%);
+			}
+		}
+		ion-list{
+			margin-bottom: 0 !important;
+		}
+		#content-video-list{
+			padding-bottom: 0 !important;
+		}
+
+		p{
+			font-family: 2.2rem;
+			padding: 16px;
+		}
+	}
+	
+	#content-title-calendar{
+		top: 110px;
+    z-index: 1;
+	}
+
+	#content-event-list{
+		position: relative;
+		z-index: 2;
+	}
+}
+
+.ios{
+	page-commission-details {
+		#online{
+			top: 118px;
+		}
+		#content-title-calendar{
+			top: 115px;
+		}
+		#current-video{
+			top: 118px !important;
+		}
+	}
+}

@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+  	<ion-buttons start class="fake-back">
+      <button ion-button  clear (click)="back()">
+        <ion-icon name="menu" class="icon-flecha3"></ion-icon>
+      </button>
+    </ion-buttons>
+    
+    <button ion-button menuToggle>
+      <ion-icon class="icon-hamburguesa"></ion-icon>
+      <span class="title">Sondeo</span>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-bounce >
+	<ion-list no-lines class="list-borders">
+    <p *ngIf="questions.length == 0" text-center> <br> No hay sondeos en el este momento</p>
+		<button text-wrap ion-item (click)="showQuestion(question)" *ngFor="let question of questions">
+	    <h2>{{ question.title }}</h2>
+	    <p>{{ question.description }}</p>
+	    <i class="icon-state icon-sin-voto" item-end *ngIf="question.vote == null"></i>
+	    <i class="icon-state icon-voto-si" item-end *ngIf="question.vote == 1"></i>
+	    <i class="icon-state icon-voto-no" item-end *ngIf="question.vote == 0"></i>
+	  </button> 
+	 
+	</ion-list>
+</ion-content>

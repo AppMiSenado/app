@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu" class="icon-hamburguesa"></ion-icon>
+      <span class="title">Contacto</span>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-bounce  padding>
+	<ion-list>
+		<ion-item>
+	    <ion-input placeholder="Nombre" clearInput [(ngModel)]="form.fullname"></ion-input>
+	  </ion-item>
+	  <ion-item>
+	    <ion-input placeholder="Correo electrónico" clearInput [(ngModel)]="form.email"></ion-input>
+	  </ion-item>
+	  <ion-item>
+	    <ion-textarea placeholder="Mensaje" clearInput [(ngModel)]="form.message"></ion-textarea>
+	  </ion-item>
+	</ion-list>
+	<p>Este mensaje va dirigido a <span (click)="goToLink('http://www.senado.gov.co/participacion-ciudadana/atencion-ciudadana')">atención ciudadana</span></p>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <button ion-button (click)="doSend()" 
+    				[disabled]="!form.message || !form.email && validateEmail(form.email)">
+  		Enviar
+  	</button>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,69 @@
+signup-data {
+	.options{
+		border-top: 1px solid color($colors, gold) !important;
+		display: block;
+    float: left;
+    width: 100%;
+    margin-bottom: 0;
+		button.item{
+			border-bottom: 1px solid color($colors, gold) !important;
+			img{
+				box-shadow: 3px 0px 15px rgba(0, 0, 0, 0.3);
+			}
+			.item-inner{
+				border-bottom: 0 !important;
+				padding-right: 8px !important;
+				background-image: none;
+				h2{
+					color: color($colors, dark);
+				}
+				p{
+					color: color($colors, grey);
+				}
+			}
+			button{
+				ion-icon{
+					color: color($colors, grey);
+					opacity: 0.3;
+					font-size: 1.9rem;
+				}
+			}
+
+			&.active{
+				button{
+				ion-icon{
+						color: color($colors, gold);
+						opacity: 1;
+					}
+				}
+			}
+		}	
+	}
+	
+	button#select-all{
+		background-color: color($colors, white);
+		color: color($colors, black);
+		box-shadow: none;
+		float: right;
+		color: color($colors, grey);
+		text-transform: inherit;
+		font-size: 1.2rem;
+		.button-inner{
+			font-family: 'Century';
+		}
+		&.active{
+			ion-icon{
+				color: color($colors, gold);
+			}
+		}	
+		ion-icon{
+			margin-right: 5px;
+		}
+	}
+
+	ion-footer{
+		button{
+			width: 100px;
+		}
+	}
+}

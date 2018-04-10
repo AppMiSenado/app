@@ -1,0 +1,42 @@
+page-notification-details {
+	i{
+		color: color($colors, gold);
+		font-size: 2rem;
+	}
+	h2{
+		text-transform: uppercase;
+	}
+	p{
+		color: color($colors, black) !important;
+		&.title{
+			font-size: 1.7rem;
+		}
+		&.description{
+			padding: 0 16px;
+		}
+	}
+	span.date{
+		color: color($colors, grey) !important;
+		font-size: 1.3rem;
+		position: relative;
+	}
+
+	img{
+		padding: 0 16px;
+	}
+
+	#link{
+		display: table;
+		float: none;
+		margin: 10px auto;
+		box-shadow: none;
+		background-color: color($colors, gold) !important; 
+		border-radius: 6px !important;
+		height: 3.6rem !important;
+		.button-inner{
+			font-family: 'Century';
+			font-size: 1.5rem;
+			text-transform: initial;
+		}
+	}
+}

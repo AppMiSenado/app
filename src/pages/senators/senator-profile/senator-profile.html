@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-navbar>
+  	<ion-buttons start class="fake-back">
+      <button ion-button  clear (click)="back()">
+        <ion-icon name="menu" class="icon-flecha3"></ion-icon>
+      </button>
+    </ion-buttons>
+    
+    <button ion-button menuToggle>
+      <ion-icon class="icon-hamburguesa"></ion-icon>
+      <span class="title">Senador(a)</span>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-bounce  class="background-image">
+	<ion-grid>
+		<ion-row>
+			<div id="content-image">
+				<img [src]="senator.image" class="senator">
+				<img [src]="senator.party.image" class="party">
+			</div>
+			<ion-col>
+				<h2>{{ senator.fullname }}</h2>
+				<p>Partido político: {{ senator.party.name }}</p>
+				<p *ngIf="senator.commission">Comisión: {{ senator.commission.name }}</p>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+	
+	<ion-list no-lines class="list-borders">
+		<ng-container *ngIf="senator.contacts.telephones">
+			<ion-item *ngFor="let tel of senator.contacts.telephones">
+				<ion-icon class="icon-telefono"></ion-icon>{{ tel }}
+			</ion-item>
+		</ng-container>
+		
+		<button ion-item *ngIf="senator.contacts.email">
+			<ion-icon class="icon-sobre"></ion-icon> {{ senator.contacts.email }}
+		</button>
+
+		<button ion-item *ngIf="senator.contacts.webPage" (click)="goToLink(senator.contacts.webPage)">
+			<ion-icon class="icon-link"></ion-icon> {{ senator.contacts.webPage }}
+		</button>
+
+		<button ion-item *ngIf="senator.contacts.socialNetworks && senator.contacts.socialNetworks.twitter" (click)="goToLink('https://twitter.com/'+senator.contacts.socialNetworks.twitter)">
+			<ion-icon class="icon-twitter"></ion-icon> @{{ senator.contacts.socialNetworks.twitter }}
+		</button>
+		<button ion-item *ngIf="senator.contacts.socialNetworks && senator.contacts.socialNetworks.facebook" (click)="goToLink('https://es-la.facebook.com/'+senator.contacts.socialNetworks.facebook)">
+			<ion-icon class="icon-facebook"></ion-icon> /{{ senator.contacts.socialNetworks.facebook }}
+		</button>
+	</ion-list>
+
+	<button ion-button class="button-big" (click)="goVotingHistory()">Historial de votación</button>
+	<!--<button ion-button class="button-big" (click)="goAttendenceHistory()">Historial de asistencia</button>-->
+	
+	<h3 class="text-center" *ngIf="senator.contacts.socialNetworks && senator.contacts.socialNetworks.twitter">Live Social</h3>
+	<ion-spinner name="ios" *ngIf="loading"></ion-spinner>
+	<div id="social-feed-container"></div>
+</ion-content>

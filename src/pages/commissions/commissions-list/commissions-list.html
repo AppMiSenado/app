@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon class="icon-hamburguesa"></ion-icon>
+      <span class="title">Comisiones</span>
+    </button>
+  </ion-navbar>
+
+  <ion-searchbar
+	  [(ngModel)]="search"
+	  [showCancelButton]="shouldShowCancel"
+	  (ionCancel)="onCancel($event)"
+	  placeholder = "Buscar">
+	</ion-searchbar>
+</ion-header>
+
+<ion-content no-bounce >
+	<ion-list no-lines class="list-borders">
+
+		<button ion-item text-wrap *ngFor="let commission of commissionsList | search:'name':search" (click)="showCommission(commission)" >
+	    <ion-thumbnail item-start>
+	      <img-loader useImg [spinner]="false" [src]="commission.image"></img-loader>
+	    </ion-thumbnail>
+	    <h2>{{ commission.name }}</h2>
+	    <i class="online" item-end *ngIf="commission.status"></i>
+	  </button> 
+	 
+	</ion-list>
+</ion-content>

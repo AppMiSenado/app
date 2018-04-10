@@ -1,0 +1,224 @@
+page-home {
+  ion-badge{
+    position: absolute;
+    left: -5px;
+    bottom: -5px;
+    font-size: 1.2rem !important;
+  }
+
+  .questions-icon{
+    .icon-voto{
+      font-size: 3rem;
+    }
+  }
+  
+	#state-bar{
+		display: block;
+		position: fixed;
+		width: 100%;
+		top: 56px;
+		background-color: color($colors, white);
+		box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+		z-index: 3;
+		ion-grid, ion-row{
+			padding: 0;
+		}
+		p{
+			text-transform: uppercase;
+			font-family: 'Century';
+			font-size: 1.4rem;
+			i{
+				display: inline-block;
+				width: 8px;
+				height: 8px;
+				border-radius: 50%;
+				margin-left: 0;
+				margin-right: 5px;
+				top: -1px;
+				position: relative;
+				&.red{
+					background-color: color($colors, danger);
+				}
+				&.green{
+					background-color: color($colors, secondary);
+				}
+			}
+		}
+	}
+
+	.custom-ion-scroll{
+		position: fixed;
+		width: 100%;
+		top: 111px;
+    white-space: nowrap;
+    height: 79px;
+    overflow-y: hidden;
+    overflow-x: auto;
+		text-align: left;
+		z-index: 2;
+    background-color: color($colors, white) !important;
+    text-align: left;
+    .scroll-item {
+      display: inline-block;
+      width: 60px;
+      height: 60px;
+      border-radius: 100%;
+      margin: 10px 5px 5px;
+      border-width: 2px;
+      border-style: solid;
+      position: relative;
+      &.create{
+      	span{
+      		text-align: center;
+      		font-size: 1.2rem;
+					position: absolute;
+					left: 50%;
+					top: 50%;
+					transform: translate(-50%, -50%);
+					line-height: 12px;
+      	}
+      	i{
+      		position: absolute;
+      		right: 0;
+      		bottom: -5px;
+      		width: 20px;
+      		height: 20px;
+      		border-radius: 50%;
+      		background-color: color($colors, gold);
+      		color: color($colors, white);
+      		font-style: normal;
+      		line-height: 17px;
+      		font-size: 1.7rem;
+          text-align: center;
+      	}
+      }
+      &.gold{
+      	border-color: color($colors, gold);
+      }
+      &.red{
+      	border-color: color($colors, danger);
+      }
+      &.green{
+      	border-color: color($colors, secondary);
+      }
+    }
+
+    &::-webkit-scrollbar{
+	    display:none;
+	  }
+  }  
+
+  #group-buttons{
+  	position: relative;
+  	display: table;
+  	margin-top: 163px;
+  	width: 200px;
+  	left: 50%;
+  	transform: translateX(-50%);
+  	overflow: hidden;
+  	border-radius: 10px;
+  	border: 1px solid color($colors, white);
+    &.without-list{
+      margin-top: 95px;
+    }
+  	button{
+  		width: 100%;
+  		margin: 0;
+  		border: 0;
+  		padding-top: 10px;
+  		padding-bottom: 10px;
+  		border-bottom: 1px solid color($colors, white);
+  		border-radius: 0 !important;
+  		height: 42px !important;
+    	max-height: 42px;
+      @media screen and (min-height: 587px) {
+        height: 52px !important;
+        max-height: 52px;
+      }
+  		&:last-child{
+  			border-bottom: 0;
+  		}
+  	}
+  }
+
+  .questions{
+    background-color: color($colors, white) !important;
+    margin-right: 15px;
+  	float: right;
+    border-radius: 6px;
+    &.activated{
+      background-color: rgba(color($colors, white), 0.3) !important;
+      .button-inner{
+        color: color($colors, white) !important;
+      }
+    }
+  	.button-inner{
+  		font-size: 1.7rem !important;
+      color: color($colors, gold) !important;
+      text-transform: initial;
+  	}
+    .icon-check{
+      font-size: 1.2rem;
+      margin-right: 7px;
+    }
+  }
+  
+  #all-online{
+    margin-top: 104px;
+    @media screen and (min-height: 587px) {
+      margin-top: 99px;
+    }
+    &.without-list{
+      margin-top: 25px;
+      @media screen and (min-height: 587px) {
+        margin-top: 20px;
+      }
+    }
+    &.no-login{
+      margin-top: 31px !important;
+    }
+    .online{
+      text-align: left !important;
+      padding: 10px 20px;
+      display: block;
+      float: left;
+      width: 100%;
+      background-color: color($colors, secondary);
+      color: color($colors, white);
+      margin: 31px 0 25px;
+      @media screen and (min-height: 587px) {
+        padding: 20px;
+        margin: 35px 0;
+      }
+      h2{
+        font-family: 'Century';
+        margin-top: 0;
+        margin-bottom: 5px;
+        text-transform: uppercase;
+        font-size: 1.5rem;
+      }
+      p{
+        margin: 0;
+        line-height: 1.3rem;
+      }
+    }
+  }
+}
+
+.ios{
+  page-home {
+  	#state-bar{
+  		top: 74px;
+  	}
+
+  	.custom-ion-scroll {
+  		top: 129px;
+  	}
+
+    #all-online{
+     &.no-login{
+        margin-top: 21px !important;
+      }
+    }
+  }
+}

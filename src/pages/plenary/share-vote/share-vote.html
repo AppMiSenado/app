@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar>
+  	<ion-buttons start class="fake-back">
+      <button ion-button  clear (click)="back()">
+        <ion-icon name="menu" class="icon-flecha3"></ion-icon>
+      </button>
+    </ion-buttons>
+    
+    <button ion-button menuToggle>
+      <ion-icon name="menu" class="icon-hamburguesa"></ion-icon>
+      <span class="title">Mi Voto</span>
+    </button>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="share()">
+        <ion-icon name="share"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-bounce  padding class="background-image second-image" [class.green]="myVote == true" [class.red]="myVote == false">
+  
+	<p>
+		Yo he votado 
+		<ng-container *ngIf="myVote==true">Si </ng-container>	 
+	  <ng-container *ngIf="myVote==false">No </ng-container>
+	  a el {{ bill.name }}</p>
+ 
+  <button ion-button class="button-square green active" *ngIf="myVote == true" >Si</button>
+	<button ion-button class="button-square red active" *ngIf="myVote == false">No</button>
+
+	<br>
+
+	<ion-list>
+	  <ion-item>
+	    <ion-textarea placeholder="Escribe tus comentarios acerca de tu voto por el {{ myVote ? 'Si': 'No' }}" clearInput [(ngModel)]="form.message"></ion-textarea>
+	  </ion-item>
+	</ion-list>
+
+	<button ion-button class="button-big" (click)="doSend()" [disabled]="!form.message">Enviar</button>
+
+	<br><br>
+	<button ion-button class="button-big" (click)="goResults()">Ver resultados</button>
+</ion-content>

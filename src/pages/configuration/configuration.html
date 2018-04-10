@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu" class="icon-hamburguesa"></ion-icon>
+      <span class="title">Configuración</span>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-bounce >
+	<ion-list no-lines class="list-borders">
+
+		<ion-item text-wrap>
+	    <ion-label>Recibir notificaciones (generales y de nuevos proyectos de ley)</ion-label>
+    	<ion-toggle [(ngModel)]="configuration.all" (ngModelChange)="updateSettings()"></ion-toggle>
+	  </ion-item> 
+
+	  <ion-item text-wrap>
+	    <ion-label>Recibir notificaciones sobre inicio de las plenarias</ion-label>
+    	<ion-toggle [(ngModel)]="configuration.plenary" (ngModelChange)="updateSettings()"></ion-toggle>
+	  </ion-item> 
+	 
+	</ion-list>
+</ion-content>

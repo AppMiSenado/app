@@ -1,0 +1,18 @@
+page-login {
+	.social{
+		background-color: rgba(color($colors, white), 0.3);
+		color: color($colors, white);
+		border: 1px solid color($colors, white);
+		text-transform: initial;
+		box-shadow: none;
+		border-radius: 100%;
+		height: 50px !important;
+		width: 50px;
+		margin-bottom: 25px;
+		font-size: 2rem !important;
+		&.activated{
+			background-color: rgba(color($colors, white), 1);
+			color: color($colors, gold) !important;
+		}
+	}
+}

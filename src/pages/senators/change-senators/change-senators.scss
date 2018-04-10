@@ -1,0 +1,19 @@
+page-change-senators {
+	ion-list{
+		margin-bottom: 0 !important;
+	}
+	.item-block{
+		ion-icon{
+			color: color($colors, grey);
+			opacity: 0.3;
+			font-size: 1.9rem;
+		}
+
+		&.active{
+			ion-icon{
+				color: color($colors, gold) !important;
+				opacity: 1;
+			}
+		}
+	}
+}

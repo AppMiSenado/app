@@ -1,0 +1,20 @@
+﻿Configuración de la Aplicación
+
+Todas las variables que necesita la aplicación para su correcto funcionamiento se encuentra en src/providers/constants.ts
+
+
+Instalación
+
+
+1. Instalar node v.8.9
+
+2. Instalar Ionic 
+
+3. Instalar Cordova
+
+4. Dentro de la carpeta del proyecto ejecutar el comando npm install
+
+5. Para correr el proyecto en un entorno web ejecutar el comando ionic serve
+
+
+https://ionicframework.com/getting-started

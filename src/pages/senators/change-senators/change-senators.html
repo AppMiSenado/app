@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon class="icon-hamburguesa"></ion-icon>
+      <span class="title">Cambiar Senadores</span>
+    </button>
+    <ion-buttons end>
+      <button ion-button (click)="goHome()">
+        Terminar
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+  <ion-searchbar
+	  [(ngModel)]="search"
+	  (ngModelChange)="doSearch($event)"
+	  [showCancelButton]="shouldShowCancel"
+	  (ionCancel)="onCancel($event)"
+	  placeholder = "Buscar">
+	</ion-searchbar>
+</ion-header>
+
+<ion-content no-bounce >
+	<ion-list no-lines class="list-borders" [virtualScroll]="senatorsFiltered" approxItemHeight="70px">
+		<button ion-item 
+						*virtualItem="let senator"
+						[class.active]="validateOptionFilter(senator.id)"
+            (click)="toggleOptionFilter(senator.id)">
+	    <ion-avatar item-start>
+	      <img-loader useImg [spinner]="false" [src]="senator.image"></img-loader>
+	    </ion-avatar>
+	    <h2>{{ senator.fullname }}</h2>
+	    <p>{{ senator.party.name }}</p>
+	    <button ion-button clear item-end><ion-icon class="icon-circulo-check"></ion-icon></button>
+	  </button> 
+	</ion-list>
+</ion-content>

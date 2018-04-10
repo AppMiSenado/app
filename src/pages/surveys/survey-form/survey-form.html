@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+  	<ion-buttons start class="fake-back">
+      <button ion-button  clear (click)="back()">
+        <ion-icon name="menu" class="icon-flecha3"></ion-icon>
+      </button>
+    </ion-buttons>
+    
+    <button ion-button menuToggle>
+      <ion-icon name="menu" class="icon-hamburguesa"></ion-icon>
+      <span class="title">Encuestas</span>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-bounce >
+	<ion-list class="content-form">
+	  <ion-item>
+	    <ion-textarea placeholder="Escriba aquí su pregunta" clearInput [(ngModel)]="form.question"></ion-textarea>
+	  </ion-item>
+		<button [disabled]="!form.question" (click)="doSend()">
+			<ion-icon class="icon-flecha"></ion-icon>
+		</button>
+	</ion-list>
+	
+	<h2 class="subtitle">Encuestas enviadas</h2>
+	
+	<ion-list no-lines class="list-borders">
+		<p *ngIf="surveys.length == 0"><br> No ha realizado ninguna encuesta.</p>
+		<button text-wrap ion-item (click)="showSurvey(survey)" *ngFor="let survey of surveys">
+	    <h2>{{ survey.question }}</h2>
+	  </button> 
+	 
+	</ion-list>
+</ion-content>

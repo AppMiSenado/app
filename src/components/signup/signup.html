@@ -1,0 +1,32 @@
+<ion-content no-bounce  padding class="background-image">
+	
+	<h2 id="title">¡Ingrese sus datos para comenzar!</h2>
+	
+	<ion-list no-lines class="form-senado">
+		<ion-item>
+	    <ion-input type="email" placeholder="Correo electrónico" [(ngModel)]="form.email" clearInput></ion-input>
+	  </ion-item>
+
+	  <ion-item>
+	    <ion-input type="password" placeholder="Contraseña" [(ngModel)]="form.password" clearInput></ion-input>
+	  </ion-item>
+
+	  <ion-item>
+	    <ion-input type="password" placeholder="Confirmar contraseña" [(ngModel)]="form.validatePassword" clearInput></ion-input>
+	  </ion-item>
+	</ion-list>
+
+	<p class="error" *ngIf="form.validatePassword && form.password != form.validatePassword">La contraseña no coincide con la confirmación de la contraseña</p>
+
+	<p class="error" *ngIf="form.password.length > 1 && form.password.length < 6">La contraseña debe ser mayor a 6 dígitos</p>
+
+	<button ion-button class="button-big" (click)="doSignup()" [disabled]="!form.email || !form.password || !form.validatePassword || (form.password != form.validatePassword) || !validateEmail(form.email)">Registrarse</button>
+
+	<hr>
+	
+	<button ion-button clear class="button-clear" (click)="dismiss()">Iniciar sesión</button>
+	
+	<br><br>
+
+	<button ion-button clear class="button-clear" (click)="goTerms()">Términos y condiciones de uso</button>
+</ion-content>

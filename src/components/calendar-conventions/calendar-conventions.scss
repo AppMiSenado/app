@@ -1,0 +1,26 @@
+calendar-conventions {
+	span{
+		display: inline-block;
+		width: 10px;
+		height: 10px;
+		border-radius: 100%;
+		margin-right: 5px;
+		&.black{
+			background-color: color($colors, black);
+		}
+		&.gold{
+			background-color: color($colors, gold);
+		}
+		&.grey{
+			background-color: color($colors, grey);
+		}
+	}
+
+	p{
+		&:nth-child(3){
+			padding-top: 0 !important;
+			padding-bottom: 0 !important;
+		}
+	}
+}
+

@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+  	<ion-buttons start class="fake-back">
+      <button ion-button  clear (click)="back()">
+        <ion-icon name="menu" class="icon-flecha3"></ion-icon>
+      </button>
+    </ion-buttons>
+    
+    <button ion-button menuToggle>
+      <ion-icon class="icon-hamburguesa"></ion-icon>
+      <span class="title">Encuesta</span>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content no-bounce  class="background-image second-image">
+	<div id="question">
+		<img [src]="question.senator.image">
+		<p class="senator">Por: {{ question.senator.fullname }}</p>
+		<p class="question">{{ question.question }}</p>
+	</div>
+	
+	<p class="answers">Responda a la encuesta anterior</p>
+
+	<button ion-button class="button-square green" [class.active]="myVote == true" (click)="myVote = true">Si</button>
+	<button ion-button class="button-square red" [class.active]="myVote == false" (click)="myVote = false">No</button>
+	
+	<br><br>
+	<button ion-button class="button-big" (click)="doSend()" [disabled]="myVote == null">Enviar</button>
+</ion-content>
+

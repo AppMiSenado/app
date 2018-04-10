@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+  	<ion-buttons start class="fake-back">
+      <button ion-button  clear (click)="back()">
+        <ion-icon name="menu" class="icon-flecha3"></ion-icon>
+      </button>
+    </ion-buttons>
+    
+    <button ion-button menuToggle>
+      <ion-icon class="icon-hamburguesa"></ion-icon>
+      <span class="title">Historial de asistencia</span>
+    </button>
+  </ion-navbar>
+
+  <ion-searchbar
+	  [(ngModel)]="search"
+	  [showCancelButton]="shouldShowCancel"
+	  (ionCancel)="onCancel($event)"
+	  placeholder = "Buscar">
+	</ion-searchbar>
+</ion-header>
+
+
+<ion-content no-bounce >
+
+	<ion-list no-lines class="list-borders">
+
+		<ion-item text-wrap *ngFor="let project of projects | search:'date':search">
+	    <h2>Plenaria {{ project.date | date }}</h2>
+	    <i class="icon-presente" item-end *ngIf="project.attended == 1"></i>
+	    <i class="icon-ausente" item-end *ngIf="project.attended == 0"></i>
+	  </ion-item> 
+	 
+	</ion-list>
+
+</ion-content>

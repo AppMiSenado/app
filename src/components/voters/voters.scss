@@ -1,0 +1,25 @@
+voters {
+	.icon-state{
+		font-size: 5rem;
+		margin-right: 0 !important;
+		&:before{
+			margin-left: 0;
+			margin-right: 0;
+		}
+		&.icon-sin-voto{
+			font-size: 5.3rem;
+			color: color($colors, grey);
+		}
+		&.icon-voto-si{
+			color: color($colors, secondary);
+		}
+		&.icon-voto-no{
+			font-size: 4.6rem;
+			color: color($colors, danger);
+		}
+	}
+
+	ion-list{
+		margin-bottom: 0 !important;
+	}
+}

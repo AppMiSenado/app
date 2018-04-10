@@ -1,0 +1,27 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar menuToggle>
+      <ion-icon class="icon-cancel" id="close-menu"></ion-icon>
+      <img src="assets/images/logo.svg" id="logo">
+    </ion-toolbar>
+    <div id="flag"></div>
+  </ion-header>
+  <ion-content no-bounce>
+    
+    <ion-list no-lines>
+      <button menuClose ion-item (click)="goLogin()" *ngIf="!isLogin">
+        Iniciar sesión
+      </button>
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)" [hidden]="(!isLogin && isLogin != p.requireLogin) || (p.access != 'all' && p.access != userType)">
+        {{p.title}}
+      </button>
+      <button menuClose ion-item (click)="closeSession()" *ngIf="isLogin">
+        Cerrar sesión
+      </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

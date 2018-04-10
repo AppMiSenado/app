@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start class="fake-back">
+      <button ion-button  clear (click)="back()">
+        <ion-icon name="menu" class="icon-flecha3"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <button ion-button menuToggle>
+      <ion-icon name="menu" class="icon-hamburguesa"></ion-icon>
+      <span class="title">Votación</span>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-bounce  class="background-image second-image">
+  
+	<p>Voto por el {{ bill.name }}</p>
+ 
+  <button ion-button class="button-square green" [class.active]="myVote == true" (click)="myVote = true">Si</button><br><br>
+	<button ion-button class="button-square red" [class.active]="myVote == false" (click)="myVote = false">No</button>
+
+	<br><br><br>
+	<button ion-button class="button-big" (click)="doSend()" [disabled]="myVote == null">Enviar</button>
+</ion-content>

@@ -1,0 +1,13 @@
+page-senator-attendance-history {
+	ion-list{
+		margin-bottom: 0 !important;
+	}
+	.icon-presente{
+		font-size: 3.2rem;
+		color: color($colors, secondary);
+	}
+	.icon-ausente{
+		font-size: 3.2rem;
+		color: color($colors, danger);
+	}
+}

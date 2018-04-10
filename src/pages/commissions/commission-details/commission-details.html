@@ -1,0 +1,146 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start class="fake-back">
+      <button ion-button  clear (click)="back()">
+        <ion-icon name="menu" class="icon-flecha3"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <button ion-button menuToggle>
+      <ion-icon class="icon-hamburguesa"></ion-icon>
+      <span class="title">{{ commission.name }}</span>
+    </button>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="showDescription()">
+        <ion-icon class="icon-info"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+  <ion-toolbar id="content-tabs">
+    <ion-segment [(ngModel)]="section">
+      <ion-segment-button value="streaming">
+        Streaming
+      </ion-segment-button>
+      
+      <ion-segment-button value="integrantes">
+        Integrantes
+      </ion-segment-button>
+      
+      <ion-segment-button value="agenda">
+        Agenda
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ng-container *ngIf="section == 'streaming'">
+  <ng-container *ngIf="commission.status">
+    <div id="online">En vivo</div>
+    <iframe width="100%" height="200" *ngIf="trustUrlLive" [src]="trustUrlLive" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen id="current-video"></iframe>
+  </ng-container>
+
+  <ng-container *ngIf="!commission.status">
+    <iframe width="100%" height="200" *ngIf="trustUrl && links.length > 0" [src]="trustUrl" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen id="current-video"></iframe>
+  </ng-container>
+</ng-container>
+
+<ion-content no-bounce has-bouncing="false">
+
+  <ng-container *ngIf="section == 'integrantes'">
+    <ion-list no-lines class="list-borders">
+      <button ion-item (click)="showSenator(senator)" *ngFor="let senator of senators">
+        <ion-avatar item-start>
+          <img-loader useImg [spinner]="false" [src]="senator.image"></img-loader>
+        </ion-avatar>
+        <h2>{{ senator.fullname }}</h2>
+      </button> 
+    </ion-list>
+  </ng-container>
+
+  <ng-container *ngIf="section == 'streaming'">
+  
+    <ng-container *ngIf="commission.status">
+      <div id="content-video-list">
+        <p *ngIf="comments.length ==0" text-center><br>No hay comentarios en este momento. Sea el primero en escribir uno.</p>
+        <ion-list no-lines class="list-borders" *ngIf="comments.length > 0">
+          <ion-item text-wrap *ngFor="let comment of comments">
+            <p>{{ comment.date | date:'EEEE, d MMMM y - h:mm a' }}</p><br>
+            <h3>{{ comment.message }}</h3>
+          </ion-item>
+        </ion-list>
+      </div>
+    </ng-container>
+  
+    <ng-container *ngIf="!commission.status">
+      <div id="history-streaming">
+        <div id="content-video-list" *ngIf="links.length > 0">
+          <ion-list no-lines class="list-borders">
+            <button ion-item text-wrap *ngFor="let link of links" [class.active]="link.youtube_id == activeUrl" (click)="activeStreaming(link.youtube_id)">
+              <h2>{{link.name}}</h2>
+            </button>
+          </ion-list>
+        </div>
+
+        <p *ngIf="links.length == 0" text-center>
+          No hay historial de sesiones
+        </p>
+      </div>
+    </ng-container>
+
+  </ng-container>
+
+  <ng-container *ngIf="section == 'agenda'">
+    <div id="content-title-calendar" *ngIf="title">   
+      <h3 class="year">{{ title | date:'y' }}</h3>
+      <h2 class="month">{{ title | date:'MMMM' }}</h2>
+    </div>    
+    <calendar [eventSource]="eventSource"
+      [calendarMode]="calendar.mode"
+      [currentDate]="calendar.currentDate"
+      (onCurrentDateChanged)="onCurrentDateChanged($event)"
+      (onRangeChanged)="reloadSource(startTime, endTime)"
+      (onEventSelected)="onEventSelected($event)"
+      (onTitleChanged)="onViewTitleChanged($event)"
+      (onTimeSelected)="onTimeSelected($event)"
+      [monthviewEventDetailTemplate]="template"
+      step="30"
+      class="with-tabs">
+    </calendar>
+  </ng-container>	
+
+
+</ion-content>
+
+<ion-footer *ngIf="section == 'streaming' && commission.status && user.type == 'citizen'">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-textarea autosize type="text" *ngIf="!isDisabledComment" placeholder="Escriba aquí su comentario" [(ngModel)]="comment"  id="input-comment"></ion-textarea>  
+
+           <ion-textarea autosize type="text" *ngIf="isDisabledComment" placeholder="Debe esperar 5 minutos para volver a comentar" id="input-comment" [disabled]="true"></ion-textarea>  
+        </ion-col>
+        <ion-col class="width-60">
+          <button ion-button clear [disabled]="!comment" (click)="sendComment()">
+            <ion-icon class="icon-flecha"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>
+
+<ng-template #template let-selectedDate="selectedDate.events" let-noEventsLabel="noEventsLabel">
+  <div id="content-event-list">
+    <ion-list no-lines class="list-borders" *ngIf="selectedDate.length > 0">
+      <button ion-item text-wrap *ngFor="let event of selectedDate" (click)="goToLink(event.link)">
+        <div class="date">{{event.startTime | date:'EEEE, d MMMM y - h:mm a'}}</div>
+        <h2>{{event.title}}</h2>
+      </button>
+    </ion-list>
+     
+    <p text-center *ngIf="selectedDate.length == 0">No hay eventos  para esta fecha</p>
+  </div>
+</ng-template>

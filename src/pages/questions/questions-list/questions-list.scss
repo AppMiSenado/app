@@ -1,0 +1,33 @@
+page-questions-list {
+	.icon-state{
+		font-size: 5rem;
+		margin-right: 0 !important;
+		&:before{
+			margin-left: 0;
+			margin-right: 0;
+		}
+		&.icon-sin-voto{
+			font-size: 5.9rem;
+			color: color($colors, grey);
+			margin-right: -5px !important;
+		}
+		&.icon-voto-si{
+			color: color($colors, secondary);
+		}
+		&.icon-voto-no{
+			font-size: 4.5rem;
+			color: color($colors, danger);
+		}
+	}
+
+	ion-list{
+		margin-bottom: 0 !important;
+		h2{
+			color: color($colors, gold);
+			font-family: 'Century';
+		}
+		p{
+			color: color($colors, black) !important;
+		}
+	}
+}

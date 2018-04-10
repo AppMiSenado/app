@@ -1,0 +1,100 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "https://github.com/chroa/twitter-connect-plugin",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "https://github.com/chroa/twitter-connect-plugin",
+        "spec": "git+https://github.com/chroa/twitter-connect-plugin.git",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:chroa/twitter-connect-plugin.git",
+          "sshUrl": "git+ssh://git@github.com/chroa/twitter-connect-plugin.git",
+          "httpsUrl": "git+https://github.com/chroa/twitter-connect-plugin.git",
+          "gitUrl": "git://github.com/chroa/twitter-connect-plugin.git",
+          "shortcut": "github:chroa/twitter-connect-plugin",
+          "directUrl": "https://raw.githubusercontent.com/chroa/twitter-connect-plugin/master/package.json"
+        }
+      },
+      "/Users/david/Documents/mi_senado_v2/node_modules"
+    ]
+  ],
+  "_from": "git+https://github.com/chroa/twitter-connect-plugin.git",
+  "_id": "twitter-connect-plugin@0.6.0",
+  "_inCache": true,
+  "_location": "/twitter-connect-plugin",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "https://github.com/chroa/twitter-connect-plugin",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "https://github.com/chroa/twitter-connect-plugin",
+    "spec": "git+https://github.com/chroa/twitter-connect-plugin.git",
+    "type": "hosted",
+    "hosted": {
+      "type": "github",
+      "ssh": "git@github.com:chroa/twitter-connect-plugin.git",
+      "sshUrl": "git+ssh://git@github.com/chroa/twitter-connect-plugin.git",
+      "httpsUrl": "git+https://github.com/chroa/twitter-connect-plugin.git",
+      "gitUrl": "git://github.com/chroa/twitter-connect-plugin.git",
+      "shortcut": "github:chroa/twitter-connect-plugin",
+      "directUrl": "https://raw.githubusercontent.com/chroa/twitter-connect-plugin/master/package.json"
+    }
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/chroa/twitter-connect-plugin.git#312b963c72b5a4cd708544330699159be06de3ee",
+  "_shasum": "792f4182ed719d1848b33b5ab68d6e81d524a244",
+  "_shrinkwrap": null,
+  "_spec": "https://github.com/chroa/twitter-connect-plugin",
+  "_where": "/Users/david/Documents/mi_senado_v2/node_modules",
+  "author": {
+    "name": "Nathan Kerr"
+  },
+  "bugs": {
+    "url": "https://github.com/ManifestWebDesign/twitter-connect-plugin/issues"
+  },
+  "cordova": {
+    "id": "twitter-connect-plugin",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "dependencies": {},
+  "description": "Twitter Connect Plugin - Allows single-sign on logins using Twitter",
+  "devDependencies": {},
+  "engines": [
+    {
+      "name": "cordova-android",
+      "version": ">3.9.9"
+    }
+  ],
+  "gitHead": "312b963c72b5a4cd708544330699159be06de3ee",
+  "homepage": "https://github.com/ManifestWebDesign/twitter-connect-plugin#readme",
+  "keywords": [
+    "cordova",
+    "twitter",
+    "login",
+    "connect",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "license": "Apache 2.0",
+  "name": "twitter-connect-plugin",
+  "optionalDependencies": {},
+  "readme": "# twitter-connect-plugin\nCordova/PhoneGap plugin to use Twitter Single Sign On\n### **NOTE: This plugin has been extended from https://github.com/ManifestWebDesign/twitter-connect-plugin. Not only performs authentication on your mobile device but it also allows you to call the tweet composer and has also the ability to show a twitter search timeline. This last feature is not yet complete.**\n\nUsing Twitter's Fabric SDK, you can enable SSO with your Android and iOS apps. It's a fairly involved process, so I'll try to lay out every step necessary.\n\n### Install\n\n##### Get a Fabric API key\n\nThe only thing we really need is the API key. Getting the API key is [fairly tricky](https://twittercommunity.com/t/how-can-i-get-apikey/26162/18), but this process seems to work:\n\n1. [Sign up](https://get.fabric.io/twitter-login) for a Fabric account and then open https://fabric.io/kits/android/crashlytics/install. You don't need to do the onboarding process.\n2. Find the meta-data code block in AndroidManifest.xml\n3. Find your API Key pre filled in the code.\n\n##### Create a Twitter app\nCreate a Twitter application and get the consumer key and consumer secret.\n\n##### Add plugin to your Cordova app\n\nMake sure you put in your valid API keys in their respective place.\n\n`cordova plugin add https://github.com/chroa/twitter-connect-plugin --variable FABRIC_KEY=<Fabric API Key> --variable TWITTER_KEY=<Twitter Consumer Key> --variable TWITTER_SECRET=<Twitter Consumer Secret>`\n\nFor iOS, the deployment target needs to be at least 7.0. You can set this in the config.xml file like so:\n````\n<preference name=\"deployment-target\" value=\"7.0\" />\n````\n\n##### Dependencies\n\nDependencies have been added in the Android version for the core SDK (````com.twitter.sdk.android.core````) and for retrofit ````retrofit.*```` to simplify the REST URLs (See [Square Retrofit](http://square.github.io/retrofit/))\n\n##### Finished!\nYou should now be able to: `cordova run android` or `cordova run ios`\n\n### Phonegap Build\nAdd the following to your config:\n\n```\n<gap:plugin name=\"twitter-connect-plugin\" source=\"npm\" spec=\"0.5.0\">\n  <param name=\"FABRIC_KEY\" value=\"<Fabric API Key>\" />\n  <param name=\"TWITTER_KEY\" value=\"<Twitter Consumer Key>\" />\n  <param name=\"TWITTER_SECRET\" value=\"<Twitter Consumer Secret>\" />\n</gap:plugin>\n```\n\nYou'll need to specify iOS7 for TwitterKit\n```\n<preference name=\"deployment-target\" value=\"7.0\" />\n```\n\n### Usage\n\nThis plugin adds an object to the window named TwitterConnect. The showUser method shows how to call any of the Twitter REST API methods using the TwitterAPIClient.\n\n##### Login\n\nLogin using the `.login` method:\n```\nTwitterConnect.login(\n  function(result) {\n    console.log('Successful login!');\n    console.log(result);\n  },\n  function(error) {\n    console.log('Error logging in');\n    console.log(error);\n  }\n);\n```\n\nThe login reponse object is defined as:\n```\n{\n  userName: '<Twitter User Name>',\n  userId: '<Twitter User Id>',\n  secret: '<Twitter Oauth Secret>',\n  token: '<Twitter Oauth Token>'\n}\n```\n\n##### Logout\n\nLogout using the `.logout` method:\n```\nTwitterConnect.logout(\n  function() {\n    console.log('Successful logout!');\n  },\n  function() {\n    console.log('Error logging out');\n  }\n);\n```\n##### ShowUser\n\nShow a user's profile information using the a GET to the `/1.1/users/show.json` REST API call:\n```\nTwitterConnect.showUser(\n  function(result) {\n    console.log('User Profile:');\n    console.log(result);\n    console.log('Twitter handle :'+ result.screen_name);\n  },\n  function(error) {\n    console.log('Error retrieving user profile');\n    console.log(error);\n  }\n);\n```\n\nThe user/show.json API returns a JSON response object containing all the published information as per the Twitter API specifications.\n\nSee [Twitter GET users/show Developer Documentation](https://dev.twitter.com/rest/reference/get/users/show)\n\n##### OpenComposer\n\nCalls the tweet composer in order to send tweets with embedded images and other. Must be authenticated in order to open the composer.\n```\nTwitterConnect.openComposer('insert default text here, can be empty',\n  function() {\n    console.log('Success');\n  },\n  function() {\n    console.log('Error');\n  }\n);\n```\n\n##### ShowTimeline\n\nLaunches a new view with a search timeline. Warning: this view will override the root view!\n```\nTwitterConnect.showTimeline('#fabric',\n  function() {\n    console.log('Success');\n  },\n  function() {\n    console.log('Error');\n  }\n);\n```\n\n## Troubleshooting\n\n### Android - Problem: \"com.android.dex.DexException: Multiple dex files define Landroid/support\"\n\nGo to your Platforms/android/build.gradle\n\nAdd the following code to the end.\n\n```\nconfigurations {\n\tall*.exclude group: 'com.android.support', module: 'support-v4'\n}\n```\n\nThanks to [@jineum](https://github.com/ManifestWebDesign/twitter-connect-plugin/issues/8#issuecomment-139521036)\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ManifestWebDesign/twitter-connect-plugin.git"
+  },
+  "version": "0.6.0"
+}

@@ -1,0 +1,113 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu" class="icon-hamburguesa"></ion-icon>
+      <span class="title">Inicio</span>
+    </button>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="goNotifications()" class="notifications-icon" *ngIf="user.type == 'senator'">
+        <ion-icon class="icon-campana"></ion-icon>
+        <ion-badge color="danger" *ngIf="countNotifications > 0">{{ countNotifications }}</ion-badge>
+      </button>
+
+      <button ion-button icon-only (click)="goSurveys()" class="questions-icon" *ngIf="user.type == 'citizen' || user.type == null">
+        <ion-icon class="icon-voto"></ion-icon>
+        <ion-badge color="danger" *ngIf="countPolls > 0">{{ countPolls }}</ion-badge>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-bounce class="background-image">
+  <div id="state-bar">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <p>
+            <i [class.red]="!plenaryOnline" [class.green]="plenaryOnline"></i> 
+            <ng-container *ngIf="!plenaryOnline">No hay plenaria</ng-container> 
+            <ng-container *ngIf="plenaryOnline">Plenaria en vivo</ng-container> 
+          </p>
+        </ion-col>
+         <ion-col>
+          <p>
+            <i [class.red]="!commissionsOnline" [class.green]="commissionsOnline"> </i> 
+            <ng-container *ngIf="!commissionsOnline">No hay comisión</ng-container> 
+            <ng-container *ngIf="commissionsOnline">Comisión en vivo</ng-container> 
+          </p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div class="custom-ion-scroll" *ngIf="user.type != 'senator'">
+    <div class="scroll-item gold create" (click)="changeSenators()">
+      <span>Nuevo<br>senador</span>
+      <i>+</i>
+    </div>
+  
+    <img *ngFor="let senator of mySenators; let i = index" 
+         [src]="senator.image" 
+         class="scroll-item"
+         [class.gold]="senator.attendance != true && senator.attendance != false"
+         [class.red]="senator.attendance == false"
+         [class.green]="senator.attendance == true"
+         (click)="showSenator(senator)" />
+  </div>
+  
+  <ng-container *ngIf="!plenaryOnline && !commissionsOnline"> 
+    <div id="group-buttons" [class.without-list]="user.type == 'senator'">
+      <button ion-button class="button-big"
+              *ngFor="let page of pages"
+              (click)="goToPage(page)">{{ page.title }} </button>
+    </div>    
+  </ng-container> 
+
+  <ng-container *ngIf="plenaryOnline && commissionsOnline"> 
+    <div id="all-online" [class.without-list]="user.type == 'senator'">
+      <div class="online">
+        <h2>Plenaria en vivo</h2>
+        <p>En este momento hay Plenaria en vivo, seleccione una acción</p>
+      </div>
+      <button ion-button class="button-big uppercase" (click)="goTakePart()">Participa</button>
+      <button ion-button class="button-big uppercase" (click)="goAttendance()">Asistencia</button>
+      
+      <div class="online">
+        <h2>Comisión en vivo</h2>
+        <p>En este momento hay Comisión en vivo, ingresa a nuestro livestreaming</p>
+      </div>
+
+      <button ion-button class="button-big uppercase" (click)="goCommissions()">Comisión en vivo</button>
+    </div>
+  </ng-container> 
+
+  <ng-container *ngIf="plenaryOnline && !commissionsOnline"> 
+    <div id="all-online" [class.without-list]="user.type == 'senator'">
+      <div class="online">
+        <p>En este momento hay Plenaria en vivo, seleccione una acción</p>
+      </div>
+      <button ion-button class="button-big uppercase biggest biggest-s" (click)="goTakePart()">Participa</button><br>
+      <button ion-button class="button-big uppercase biggest biggest-s" (click)="goAttendance()">Asistencia</button>
+    </div>
+  </ng-container> 
+
+  <ng-container *ngIf="!plenaryOnline && commissionsOnline"> 
+    <div id="all-online" [class.without-list]="user.type == 'senator'">
+      <div class="online">
+        <p>En este momento hay Comisión en vivo, ingresa a nuestro livestreaming</p>
+      </div>
+
+      <button ion-button class="button-big uppercase biggest" (click)="goCommissions()">Comisión<br>en vivo</button>
+    </div>
+  </ng-container> 
+
+  <br>
+  <button ion-button class="questions" (click)="goSurveysSenator()" *ngIf="user.type == 'senator'">
+    <ion-icon class="icon-check"></ion-icon> Encuestas
+  </button>
+
+  <button ion-button class="questions" (click)="goQuestions()" *ngIf="user.type == 'citizen' || user.type == null">
+    <ion-icon class="icon-check"></ion-icon> Sondeo
+  </button>
+  
+</ion-content>

@@ -1,0 +1,154 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "cordova-plugin-file-transfer@^1.7.0",
+        "scope": null,
+        "escapedName": "cordova-plugin-file-transfer",
+        "name": "cordova-plugin-file-transfer",
+        "rawSpec": "^1.7.0",
+        "spec": ">=1.7.0 <2.0.0",
+        "type": "range"
+      },
+      "/Users/david/Documents/mi_senado_v2/node_modules"
+    ]
+  ],
+  "_from": "cordova-plugin-file-transfer@>=1.7.0 <2.0.0",
+  "_id": "cordova-plugin-file-transfer@1.7.0",
+  "_inCache": true,
+  "_location": "/cordova-plugin-file-transfer",
+  "_nodeVersion": "6.6.0",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/cordova-plugin-file-transfer-1.7.0.tgz_1510361665294_0.9879124828148633"
+  },
+  "_npmUser": {
+    "name": "stevegill",
+    "email": "stevengill97@gmail.com"
+  },
+  "_npmVersion": "4.6.1",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "cordova-plugin-file-transfer@^1.7.0",
+    "scope": null,
+    "escapedName": "cordova-plugin-file-transfer",
+    "name": "cordova-plugin-file-transfer",
+    "rawSpec": "^1.7.0",
+    "spec": ">=1.7.0 <2.0.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-file-transfer/-/cordova-plugin-file-transfer-1.7.0.tgz",
+  "_shasum": "e622c18a8992865850d25bdc30cc4b71de51d874",
+  "_shrinkwrap": null,
+  "_spec": "cordova-plugin-file-transfer@^1.7.0",
+  "_where": "/Users/david/Documents/mi_senado_v2/node_modules",
+  "author": {
+    "name": "Apache Software Foundation"
+  },
+  "bugs": {
+    "url": "https://issues.apache.org/jira/browse/CB"
+  },
+  "cordova": {
+    "id": "cordova-plugin-file-transfer",
+    "platforms": [
+      "android",
+      "amazon-fireos",
+      "ubuntu",
+      "blackberry10",
+      "ios",
+      "wp7",
+      "wp8",
+      "windows8",
+      "windows",
+      "firefoxos",
+      "browser"
+    ]
+  },
+  "dependencies": {},
+  "deprecated": "This plugin has been deprecated",
+  "description": "Cordova File Transfer Plugin",
+  "devDependencies": {
+    "jscs": "^2.6.0",
+    "jshint": "^2.8.0"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "e622c18a8992865850d25bdc30cc4b71de51d874",
+    "tarball": "https://registry.npmjs.org/cordova-plugin-file-transfer/-/cordova-plugin-file-transfer-1.7.0.tgz"
+  },
+  "engines": {
+    "cordovaDependencies": {
+      "2.0.0": {
+        "cordova": ">100"
+      }
+    }
+  },
+  "homepage": "https://github.com/apache/cordova-plugin-file-transfer#readme",
+  "keywords": [
+    "cordova",
+    "file",
+    "transfer",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-amazon-fireos",
+    "cordova-ubuntu",
+    "cordova-blackberry10",
+    "cordova-ios",
+    "cordova-wp7",
+    "cordova-wp8",
+    "cordova-windows8",
+    "cordova-windows",
+    "cordova-firefoxos",
+    "cordova-browser"
+  ],
+  "license": "Apache-2.0",
+  "maintainers": [
+    {
+      "name": "bowserj",
+      "email": "bowserj@apache.org"
+    },
+    {
+      "name": "csantanapr",
+      "email": "csantana23@gmail.com"
+    },
+    {
+      "name": "filmaj",
+      "email": "maj.fil@gmail.com"
+    },
+    {
+      "name": "nikhilkh",
+      "email": "nikhil.khandelwal@gmail.com"
+    },
+    {
+      "name": "purplecabbage",
+      "email": "purplecabbage@gmail.com"
+    },
+    {
+      "name": "shazron",
+      "email": "shazron@gmail.com"
+    },
+    {
+      "name": "stevegill",
+      "email": "stevengill97@gmail.com"
+    }
+  ],
+  "name": "cordova-plugin-file-transfer",
+  "optionalDependencies": {},
+  "readme": "---\ntitle: File Transfer\ndescription: Upload and download files.\n---\n<!--\n# license: Licensed to the Apache Software Foundation (ASF) under one\n#         or more contributor license agreements.  See the NOTICE file\n#         distributed with this work for additional information\n#         regarding copyright ownership.  The ASF licenses this file\n#         to you under the Apache License, Version 2.0 (the\n#         \"License\"); you may not use this file except in compliance\n#         with the License.  You may obtain a copy of the License at\n#\n#           http://www.apache.org/licenses/LICENSE-2.0\n#\n#         Unless required by applicable law or agreed to in writing,\n#         software distributed under the License is distributed on an\n#         \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY\n#         KIND, either express or implied.  See the License for the\n#         specific language governing permissions and limitations\n#         under the License.\n-->\n\n|AppVeyor|Travis CI|\n|:-:|:-:|\n|[![Build status](https://ci.appveyor.com/api/projects/status/github/apache/cordova-plugin-file-transfer?branch=master)](https://ci.appveyor.com/project/ApacheSoftwareFoundation/cordova-plugin-file-transfer)|[![Build Status](https://travis-ci.org/apache/cordova-plugin-file-transfer.svg?branch=master)](https://travis-ci.org/apache/cordova-plugin-file-transfer)|\n\n# cordova-plugin-file-transfer\n\nThis plugin allows you to upload and download files.\n\nThis plugin defines global `FileTransfer`, `FileUploadOptions` constructors. Although in the global scope, they are not available until after the `deviceready` event.\n\n```js\ndocument.addEventListener(\"deviceready\", onDeviceReady, false);\nfunction onDeviceReady() {\n    console.log(FileTransfer);\n}\n```\n\n> To get a few ideas, check out the [sample](#sample) at the bottom of this page.\n\nReport issues with this plugin on the [Apache Cordova issue tracker](https://issues.apache.org/jira/issues/?jql=project%20%3D%20CB%20AND%20status%20in%20%28Open%2C%20%22In%20Progress%22%2C%20Reopened%29%20AND%20resolution%20%3D%20Unresolved%20AND%20component%20%3D%20%22Plugin%20File%20Transfer%22%20ORDER%20BY%20priority%20DESC%2C%20summary%20ASC%2C%20updatedDate%20DESC)\n\n## Deprecated\n\nWith the new features introduced in [XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest), this plugin is not needed any more. Migrating from this plugin to using the new features of [XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest), is explained in this [Cordova blog post](https://cordova.apache.org/blog/2017/10/18/from-filetransfer-to-xhr2.html).\n\n## Installation\n\n```bash\ncordova plugin add cordova-plugin-file-transfer\n```\n\n## Supported Platforms\n\n- Amazon Fire OS\n- Android\n- BlackBerry 10\n- Browser\n- Firefox OS**\n- iOS\n- Windows Phone 7 and 8*\n- Windows\n\n\\* _Do not support `onprogress` nor `abort()`_\n\n\\** _Do not support `onprogress`_\n\n# FileTransfer\n\nThe `FileTransfer` object provides a way to upload files using an HTTP\nmulti-part POST or PUT request, and to download files.\n\n## Properties\n\n- __onprogress__: Called with a `ProgressEvent` whenever a new chunk of data is transferred. _(Function)_\n\n## Methods\n\n- __upload__: Sends a file to a server.\n\n- __download__: Downloads a file from server.\n\n- __abort__: Aborts an in-progress transfer.\n\n\n## upload\n\n__Parameters__:\n\n- __fileURL__: Filesystem URL representing the file on the device or a [data URI](https://en.wikipedia.org/wiki/Data_URI_scheme). For backwards compatibility, this can also be the full path of the file on the device. (See [Backwards Compatibility Notes](#backwards-compatibility-notes) below)\n\n- __server__: URL of the server to receive the file, as encoded by `encodeURI()`.\n\n- __successCallback__: A callback that is passed a `FileUploadResult` object. _(Function)_\n\n- __errorCallback__: A callback that executes if an error occurs retrieving the `FileUploadResult`. Invoked with a `FileTransferError` object. _(Function)_\n\n- __options__: Optional parameters _(Object)_. Valid keys:\n  - __fileKey__: The name of the form element.  Defaults to `file`. (DOMString)\n  - __fileName__: The file name to use when saving the file on the server.  Defaults to `image.jpg`. (DOMString)\n  - __httpMethod__: The HTTP method to use - either `PUT` or `POST`. Defaults to `POST`. (DOMString)\n  - __mimeType__: The mime type of the data to upload.  Defaults to `image/jpeg`. (DOMString)\n  - __params__: A set of optional key/value pairs to pass in the HTTP request. (Object, key/value - DOMString)\n  - __chunkedMode__: Whether to upload the data in chunked streaming mode. Defaults to `true`. (Boolean)\n  - __headers__: A map of header name/header values. Use a hash to specify one or more than one value.  On iOS, FireOS, and Android, if a header named Content-Type is present, multipart form data will NOT be used. (Object)\n\n- __trustAllHosts__: Optional parameter, defaults to `false`. If set to `true`, it accepts all security certificates. Not recommended for production use. Supported on iOS. _(boolean)_\n\n### Example\n\n```js\n// !! Assumes variable fileURL contains a valid URL to a text file on the device,\n//    for example, cdvfile://localhost/persistent/path/to/file.txt\n\nvar win = function (r) {\n    console.log(\"Code = \" + r.responseCode);\n    console.log(\"Response = \" + r.response);\n    console.log(\"Sent = \" + r.bytesSent);\n}\n\nvar fail = function (error) {\n    alert(\"An error has occurred: Code = \" + error.code);\n    console.log(\"upload error source \" + error.source);\n    console.log(\"upload error target \" + error.target);\n}\n\nvar options = new FileUploadOptions();\noptions.fileKey = \"file\";\noptions.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);\noptions.mimeType = \"text/plain\";\n\nvar params = {};\nparams.value1 = \"test\";\nparams.value2 = \"param\";\n\noptions.params = params;\n\nvar ft = new FileTransfer();\nft.upload(fileURL, encodeURI(\"http://some.server.com/upload.php\"), win, fail, options);\n```\n\n### Example with Upload Headers and Progress Events (Android and iOS only)\n\n```js\nfunction win(r) {\n    console.log(\"Code = \" + r.responseCode);\n    console.log(\"Response = \" + r.response);\n    console.log(\"Sent = \" + r.bytesSent);\n}\n\nfunction fail(error) {\n    alert(\"An error has occurred: Code = \" + error.code);\n    console.log(\"upload error source \" + error.source);\n    console.log(\"upload error target \" + error.target);\n}\n\nvar uri = encodeURI(\"http://some.server.com/upload.php\");\n\nvar options = new FileUploadOptions();\noptions.fileKey=\"file\";\noptions.fileName=fileURL.substr(fileURL.lastIndexOf('/')+1);\noptions.mimeType=\"text/plain\";\n\nvar headers={'headerParam':'headerValue', 'headerParam2':'headerValue2'};\n\noptions.headers = headers;\n\nvar ft = new FileTransfer();\nft.onprogress = function(progressEvent) {\n    if (progressEvent.lengthComputable) {\n        loadingStatus.setPercentage(progressEvent.loaded / progressEvent.total);\n    } else {\n        loadingStatus.increment();\n    }\n};\nft.upload(fileURL, uri, win, fail, options);\n```\n\n## FileUploadResult\n\nA `FileUploadResult` object is passed to the success callback of the\n`FileTransfer` object's `upload()` method.\n\n### Properties\n\n- __bytesSent__: The number of bytes sent to the server as part of the upload. (long)\n\n- __responseCode__: The HTTP response code returned by the server. (long)\n\n- __response__: The HTTP response returned by the server. (DOMString)\n\n- __headers__: The HTTP response headers by the server. (Object)\n  - Currently supported on iOS only.\n\n### iOS Quirks\n\n- Does not support `responseCode` or `bytesSent`.\n\n- Does not support uploads of an empty file with __chunkedMode=true__ and `multipartMode=false`.\n\n### Browser Quirks\n\n- __withCredentials__: _boolean_ that tells the browser to set the withCredentials flag on the XMLHttpRequest\n\n### Windows Quirks\n\n- An option parameter with empty/null value is excluded in the upload operation due to the Windows API design.\n\n- __chunkedMode__ is not supported and all uploads are set to non-chunked mode.\n\n## download\n\n__Parameters__:\n\n- __source__: URL of the server to download the file, as encoded by `encodeURI()`.\n\n- __target__: Filesystem url representing the file on the device. For backwards compatibility, this can also be the full path of the file on the device. (See [Backwards Compatibility Notes](#backwards-compatibility-notes) below)\n\n- __successCallback__: A callback that is passed  a `FileEntry` object. _(Function)_\n\n- __errorCallback__: A callback that executes if an error occurs when retrieving the `FileEntry`. Invoked with a `FileTransferError` object. _(Function)_\n\n- __trustAllHosts__: Optional parameter, defaults to `false`. If set to `true`, it accepts all security certificates. Not recommended for production use. Supported on iOS. _(boolean)_\n\n- __options__: Optional parameters, currently only supports headers (such as Authorization (Basic Authentication), etc).\n\n### Example\n\n```js\n// !! Assumes variable fileURL contains a valid URL to a path on the device,\n//    for example, cdvfile://localhost/persistent/path/to/downloads/\n\nvar fileTransfer = new FileTransfer();\nvar uri = encodeURI(\"http://some.server.com/download.php\");\n\nfileTransfer.download(\n    uri,\n    fileURL,\n    function(entry) {\n        console.log(\"download complete: \" + entry.toURL());\n    },\n    function(error) {\n        console.log(\"download error source \" + error.source);\n        console.log(\"download error target \" + error.target);\n        console.log(\"download error code\" + error.code);\n    },\n    false,\n    {\n        headers: {\n            \"Authorization\": \"Basic dGVzdHVzZXJuYW1lOnRlc3RwYXNzd29yZA==\"\n        }\n    }\n);\n```\n\n### WP8 Quirks\n\n- Download requests is being cached by native implementation. To avoid caching, pass `if-Modified-Since` header to download method.\n\n### Browser Quirks\n\n- __withCredentials__: _boolean_ that tells the browser to set the withCredentials flag on the XMLHttpRequest\n\n## abort\n\nAborts an in-progress transfer. The onerror callback is passed a FileTransferError object which has an error code of `FileTransferError.ABORT_ERR`.\n\n### Example\n\n```js\n// !! Assumes variable fileURL contains a valid URL to a text file on the device,\n//    for example, cdvfile://localhost/persistent/path/to/file.txt\n\nvar win = function(r) {\n    console.log(\"Should not be called.\");\n}\n\nvar fail = function(error) {\n    // error.code == FileTransferError.ABORT_ERR\n    alert(\"An error has occurred: Code = \" + error.code);\n    console.log(\"upload error source \" + error.source);\n    console.log(\"upload error target \" + error.target);\n}\n\nvar options = new FileUploadOptions();\noptions.fileKey=\"file\";\noptions.fileName=\"myphoto.jpg\";\noptions.mimeType=\"image/jpeg\";\n\nvar ft = new FileTransfer();\nft.upload(fileURL, encodeURI(\"http://some.server.com/upload.php\"), win, fail, options);\nft.abort();\n```\n\n## FileTransferError\n\nA `FileTransferError` object is passed to an error callback when an error occurs.\n\n### Properties\n\n- __code__: One of the predefined error codes listed below. (Number)\n\n- __source__: URL to the source. (String)\n\n- __target__: URL to the target. (String)\n\n- __http_status__: HTTP status code.  This attribute is only available when a response code is received from the HTTP connection. (Number)\n\n- __body__ Response body. This attribute is only available when a response is received from the HTTP connection. (String)\n\n- __exception__: Either e.getMessage or e.toString (String)\n\n### iOS Quirks\n\n__exception__ is never defined.\n\n### Constants\n\n- 1 = `FileTransferError.FILE_NOT_FOUND_ERR`\n- 2 = `FileTransferError.INVALID_URL_ERR`\n- 3 = `FileTransferError.CONNECTION_ERR`\n- 4 = `FileTransferError.ABORT_ERR`\n- 5 = `FileTransferError.NOT_MODIFIED_ERR`\n\n## Windows Quirks\n\n- The plugin implementation is based on [BackgroundDownloader](https://msdn.microsoft.com/en-us/library/windows/apps/windows.networking.backgroundtransfer.backgrounddownloader.aspx)/[BackgroundUploader](https://msdn.microsoft.com/en-us/library/windows/apps/windows.networking.backgroundtransfer.backgrounduploader.aspx), which entails the latency issues on Windows devices (creation/starting of an operation can take up to a few seconds). You can use XHR or [HttpClient](https://msdn.microsoft.com/en-us/library/windows/apps/windows.web.http.httpclient.aspx) as a quicker alternative for small downloads.\n\n## Backwards Compatibility Notes\n\nPrevious versions of this plugin would only accept device-absolute-file-paths as the source for uploads, or as the target for downloads. These paths would typically be of the form:\n\n    /var/mobile/Applications/<application UUID>/Documents/path/to/file  (iOS)\n    /storage/emulated/0/path/to/file                                    (Android)\n\nFor backwards compatibility, these paths are still accepted, and if your application has recorded paths like these in persistent storage, then they can continue to be used.\n\nThese paths were previously exposed in the `fullPath` property of `FileEntry` and `DirectoryEntry` objects returned by the File plugin. New versions of the File plugin however, no longer expose these paths to JavaScript.\n\nIf you are upgrading to a new (1.0.0 or newer) version of File, and you have previously been using `entry.fullPath` as arguments to `download()` or `upload()`, then you will need to change your code to use filesystem URLs instead.\n\n`FileEntry.toURL()` and `DirectoryEntry.toURL()` return a filesystem URL of the form:\n\n    cdvfile://localhost/persistent/path/to/file\n\nwhich can be used in place of the absolute file path in both `download()` and `upload()` methods.\n\n## Sample: Download and Upload Files <a name=\"sample\"></a>\n\nUse the File-Transfer plugin to upload and download files. In these examples, we demonstrate several tasks like:\n\n* [Downloading a binary file to the application cache](#binaryFile)\n* [Uploading a file created in your application's root](#uploadFile)\n* [Downloading the uploaded file](#downloadFile)\n\n## Download a Binary File to the application cache <a name=\"binaryFile\"></a>\n\nUse the File plugin with the File-Transfer plugin to provide a target for the files that you download (the target must be a FileEntry object). Before you download the file, create a DirectoryEntry object by using `resolveLocalFileSystemURL` and calling `fs.root` in the success callback. Use the `getFile` method of DirectoryEntry to create the target file.\n\n```js\nwindow.requestFileSystem(window.TEMPORARY, 5 * 1024 * 1024, function (fs) {\n\n    console.log('file system open: ' + fs.name);\n\n    // Make sure you add the domain name to the Content-Security-Policy <meta> element.\n    var url = 'http://cordova.apache.org/static/img/cordova_bot.png';\n    // Parameters passed to getFile create a new file or return the file if it already exists.\n    fs.root.getFile('downloaded-image.png', { create: true, exclusive: false }, function (fileEntry) {\n        download(fileEntry, url, true);\n\n    }, onErrorCreateFile);\n\n}, onErrorLoadFs);\n```\n\n>*Note* For persistent storage, pass LocalFileSystem.PERSISTENT to requestFileSystem.\n\nWhen you have the FileEntry object, download the file using the `download` method of the FileTransfer object. The 3rd argument to the `download` function of FileTransfer is the success callback, which you can use to call the app's `readBinaryFile` function. In this code example, the `entry` variable is a new FileEntry object that receives the result of the download operation.\n\n```js\nfunction download(fileEntry, uri, readBinaryData) {\n\n    var fileTransfer = new FileTransfer();\n    var fileURL = fileEntry.toURL();\n\n    fileTransfer.download(\n        uri,\n        fileURL,\n        function (entry) {\n            console.log(\"Successful download...\");\n            console.log(\"download complete: \" + entry.toURL());\n            if (readBinaryData) {\n              // Read the file...\n              readBinaryFile(entry);\n            }\n            else {\n              // Or just display it.\n              displayImageByFileURL(entry);\n            }\n        },\n        function (error) {\n            console.log(\"download error source \" + error.source);\n            console.log(\"download error target \" + error.target);\n            console.log(\"upload error code\" + error.code);\n        },\n        null, // or, pass false\n        {\n            //headers: {\n            //    \"Authorization\": \"Basic dGVzdHVzZXJuYW1lOnRlc3RwYXNzd29yZA==\"\n            //}\n        }\n    );\n}\n```\n\nIf you just need to display the image, take the FileEntry to call its toURL() function.\n\n```js\nfunction displayImageByFileURL(fileEntry) {\n    var elem = document.getElementById('imageElement');\n    elem.src = fileEntry.toURL();\n}\n```\n\nDepending on your app requirements, you may want to read the file. To support operations with binary files, FileReader supports two methods, `readAsBinaryString` and `readAsArrayBuffer`. In this example, use `readAsArrayBuffer` and pass the FileEntry object to the method. Once you read the file successfully, construct a Blob object using the result of the read.\n\n```js\nfunction readBinaryFile(fileEntry) {\n    fileEntry.file(function (file) {\n        var reader = new FileReader();\n\n        reader.onloadend = function() {\n\n            console.log(\"Successful file read: \" + this.result);\n            // displayFileData(fileEntry.fullPath + \": \" + this.result);\n\n            var blob = new Blob([new Uint8Array(this.result)], { type: \"image/png\" });\n            displayImage(blob);\n        };\n\n        reader.readAsArrayBuffer(file);\n\n    }, onErrorReadFile);\n}\n```\n\nOnce you read the file successfully, you can create a DOM URL string using `createObjectURL`, and then display the image.\n\n```js\nfunction displayImage(blob) {\n\n    // Note: Use window.URL.revokeObjectURL when finished with image.\n    var objURL = window.URL.createObjectURL(blob);\n\n    // Displays image if result is a valid DOM string for an image.\n    var elem = document.getElementById('imageElement');\n    elem.src = objURL;\n}\n```\n\nAs you saw previously, you can call FileEntry.toURL() instead to just display the downloaded image (skip the file read).\n\n## Upload a File <a name=\"uploadFile\"></a>\n\nWhen you upload a File using the File-Transfer plugin, use the File plugin to provide files for upload (again, they must be FileEntry objects). Before you can upload anything, create a file for upload using the `getFile` method of DirectoryEntry. In this example, create the file in the application's cache (fs.root). Then call the app's writeFile function so you have some content to upload.\n\n```js\nfunction onUploadFile() {\n    window.requestFileSystem(window.TEMPORARY, 5 * 1024 * 1024, function (fs) {\n\n        console.log('file system open: ' + fs.name);\n        var fileName = \"uploadSource.txt\";\n        var dirEntry = fs.root;\n        dirEntry.getFile(fileName, { create: true, exclusive: false }, function (fileEntry) {\n\n            // Write something to the file before uploading it.\n            writeFile(fileEntry);\n\n        }, onErrorCreateFile);\n\n    }, onErrorLoadFs);\n}\n```\n\nIn this example, create some simple content, and then call the app's upload function.\n\n```js\nfunction writeFile(fileEntry, dataObj) {\n    // Create a FileWriter object for our FileEntry (log.txt).\n    fileEntry.createWriter(function (fileWriter) {\n\n        fileWriter.onwriteend = function () {\n            console.log(\"Successful file write...\");\n            upload(fileEntry);\n        };\n\n        fileWriter.onerror = function (e) {\n            console.log(\"Failed file write: \" + e.toString());\n        };\n\n        if (!dataObj) {\n          dataObj = new Blob(['file data to upload'], { type: 'text/plain' });\n        }\n\n        fileWriter.write(dataObj);\n    });\n}\n```\n\nForward the FileEntry object to the upload function. To perform the actual upload, use the upload function of the FileTransfer object.\n\n```js\nfunction upload(fileEntry) {\n    // !! Assumes variable fileURL contains a valid URL to a text file on the device,\n    var fileURL = fileEntry.toURL();\n\n    var success = function (r) {\n        console.log(\"Successful upload...\");\n        console.log(\"Code = \" + r.responseCode);\n        // displayFileData(fileEntry.fullPath + \" (content uploaded to server)\");\n    }\n\n    var fail = function (error) {\n        alert(\"An error has occurred: Code = \" + error.code);\n    }\n\n    var options = new FileUploadOptions();\n    options.fileKey = \"file\";\n    options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);\n    options.mimeType = \"text/plain\";\n\n    var params = {};\n    params.value1 = \"test\";\n    params.value2 = \"param\";\n\n    options.params = params;\n\n    var ft = new FileTransfer();\n    // SERVER must be a URL that can handle the request, like\n    // http://some.server.com/upload.php\n    ft.upload(fileURL, encodeURI(SERVER), success, fail, options);\n};\n```\n\n## Download the uploaded file <a name=\"downloadFile\"></a>\n\nTo download the image you just uploaded, you will need a valid URL that can handle the request, for example, http://some.server.com/download.php. Again, the success handler for the FileTransfer.download method receives a FileEntry object. The main difference here from previous examples is that we call FileReader.readAsText to read the result of the download operation, because we uploaded a file with text content.\n\n```js\nfunction download(fileEntry, uri) {\n\n    var fileTransfer = new FileTransfer();\n    var fileURL = fileEntry.toURL();\n\n    fileTransfer.download(\n        uri,\n        fileURL,\n        function (entry) {\n            console.log(\"Successful download...\");\n            console.log(\"download complete: \" + entry.toURL());\n            readFile(entry);\n        },\n        function (error) {\n            console.log(\"download error source \" + error.source);\n            console.log(\"download error target \" + error.target);\n            console.log(\"upload error code\" + error.code);\n        },\n        null, // or, pass false\n        {\n            //headers: {\n            //    \"Authorization\": \"Basic dGVzdHVzZXJuYW1lOnRlc3RwYXNzd29yZA==\"\n            //}\n        }\n    );\n}\n```\n\nIn the readFile function, call the `readAsText` method of the FileReader object.\n\n```js\nfunction readFile(fileEntry) {\n    fileEntry.file(function (file) {\n        var reader = new FileReader();\n\n        reader.onloadend = function () {\n\n            console.log(\"Successful file read: \" + this.result);\n            // displayFileData(fileEntry.fullPath + \": \" + this.result);\n\n        };\n\n        reader.readAsText(file);\n\n    }, onErrorReadFile);\n}\n```\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apache/cordova-plugin-file-transfer.git"
+  },
+  "scripts": {
+    "lint": "jshint www && jshint src && jshint tests",
+    "style": "jscs tests/tests.js",
+    "test": "npm run lint && npm run style"
+  },
+  "types": "./types/index.d.ts",
+  "version": "1.7.0"
+}

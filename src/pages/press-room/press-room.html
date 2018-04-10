@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu" class="icon-hamburguesa"></ion-icon>
+      <span class="title">Sala de prensa</span>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-bounce >
+	<ion-list no-lines class="list-borders">
+
+		<button ion-item (click)="goToLink(link.link)" *ngFor="let link of links">
+	    <h2>{{ link.title }}</h2>
+	  </button> 
+	 
+	</ion-list>
+</ion-content>

@@ -1,0 +1,27 @@
+<div id="custom-modal">
+	<ion-icon class="icon-cancel" id="close" (click)="dismiss()"></ion-icon>
+
+	<div id="content-modal">
+		<h2>{{ bill.name }}</h2>
+		
+		<p>{{ bill.description }}</p>
+		
+		<div id="content-buttons">
+
+			<ng-container *ngIf="userType == 'citizen'">
+				<button ion-button class="button-senado" 
+								*ngIf="(bill.status == 1 || bill.status == 2) && !bill.existVote"
+								(click)="goVote()">Ir a votar</button>
+
+	    	<button ion-button class="button-senado" 
+	    					*ngIf="bill.status == 3 || bill.existVote"
+	    					(click)="goResults()">Ver resultados</button>
+	   	</ng-container>
+
+	   	<ng-container *ngIf="userType == 'senator'">
+	   		<button ion-button class="button-senado"
+	    					(click)="goResults()">Ver resultados</button>
+	   	</ng-container>
+    </div>
+	</div>
+</div>

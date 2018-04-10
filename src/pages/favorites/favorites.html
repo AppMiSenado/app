@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon class="icon-hamburguesa"></ion-icon>
+      <span class="title">Favoritos</span>
+    </button>
+  </ion-navbar>
+
+  <ion-searchbar
+	  [(ngModel)]="search"
+	  [showCancelButton]="shouldShowCancel"
+	  (ionCancel)="onCancel($event)"
+	  placeholder = "Buscar">
+	</ion-searchbar>
+</ion-header>
+
+<ion-content no-bounce >
+	<ion-list no-lines class="list-borders">
+		
+		<p *ngIf="bills.length == 0" text-center> <br>No tiene Proyectos de ley favoritos</p>
+
+		<button ion-item text-wrap (click)="goToLink(bill.link)" *ngFor="let bill of bills | search:'name':search; let i = index">
+			<ion-icon class="icon-estrella active" item-start (click)="toggleFavorite($event, bill, i)"></ion-icon>
+	    <h2>{{ bill.name }}</h2>
+	    <p>{{ bill.categories[0].name }}</p>
+	  </button> 
+	 
+	</ion-list>
+</ion-content>

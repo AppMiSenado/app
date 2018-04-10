@@ -1,0 +1,17 @@
+page-bills {
+	ion-list {
+		margin-bottom: 0 !important;
+		ion-icon.icon-md[item-start] + .item-inner{
+			    margin-left: 5px !important;
+		}
+		ion-icon{
+			font-size: 1.7rem !important;
+			padding-right: 10px;
+			padding-top: 5px;
+			border-right: 1px solid color($colors, gray) !important;
+			&.active{
+				color: color($colors, gold) !important;
+			}
+		}
+	}
+}

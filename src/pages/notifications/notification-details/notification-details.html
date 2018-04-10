@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar>
+  	<ion-buttons start class="fake-back">
+      <button ion-button  clear (click)="back()">
+        <ion-icon name="menu" class="icon-flecha3"></ion-icon>
+      </button>
+    </ion-buttons>
+    
+    <button ion-button menuToggle>
+      <ion-icon class="icon-hamburguesa"></ion-icon>
+      <span class="title">Notificaciones</span>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-bounce >
+	<ion-list no-lines class="list-borders">
+		<ion-item text-wrap>
+	    <h2>{{ notification.type.name }}</h2>
+	    <p class="title">{{ notification.title }}</p>
+	    <span class="date" *ngIf="notification.appoinment_at">{{ notification.appoinment_at.date | date: 'MMMM d, y, h:mm:ss a' }}</span><br>
+      <span class="date" *ngIf="notification.place">{{ notification.place }}</span>
+	    <i class="icon-calendario" *ngIf="notification.type.name == 'Evento / Convocatoria'" item-end></i>
+	    <i class="icon-parlante" *ngIf="notification.type.name == 'Noticia'" item-end></i>
+	  </ion-item> 
+
+	  <p class="description">{{ notification.message }}</p>	
+
+    <img *ngIf="notification.photo" [src]="notification.photo">
+
+    <button id="link" ion-button 
+          *ngIf="notification.link" 
+          (click)="goToLink(notification.link)">
+      Abrir link
+    </button>
+    
+	</ion-list>
+</ion-content>
+
+<ion-footer *ngIf="notification.position">
+  <ion-toolbar>
+    <button ion-button (click)="goRoute()">
+      Ver dirección
+    </button>
+  </ion-toolbar>
+</ion-footer>

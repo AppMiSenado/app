@@ -1,0 +1,22 @@
+attendance-conventions {
+	span{
+		display: inline-block;
+		width: 10px;
+		height: 10px;
+		border-radius: 100%;
+		margin-right: 5px;
+		&.green{
+			background-color: color($colors, secondary);
+		}
+		&.red{
+			background-color: color($colors, danger);
+		}
+	}
+
+	p{
+		&:nth-child(3){
+			padding-top: 0 !important;
+		}
+	}
+}
+

@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-navbar>
+  	<ion-buttons start class="fake-back">
+      <button ion-button  clear (click)="back()">
+        <ion-icon name="menu" class="icon-flecha3"></ion-icon>
+      </button>
+    </ion-buttons>
+    
+    <button ion-button menuToggle>
+      <ion-icon class="icon-hamburguesa"></ion-icon>
+      <span class="title">Resultados</span>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-bounce >
+	<div id="bill">
+		<p class="title">{{ bill.name }}</p>
+	</div>
+
+	<ul id="content-tabs">
+		<li [class.active]="currentItem == 'senado'" (click)="currentItem = 'senado'">Senado</li>
+		<li [class.active]="currentItem == 'comunidad'" (click)="currentItem = 'comunidad'">Comunidad</li>
+  </ul>
+
+	<br>
+
+	<p *ngIf="votesSenators.length == 0 && currentItem == 'senado'" class="results">Los Senadores aún no han realizado la votación de este proyecto de ley</p>
+
+	<p *ngIf="votesCitizens.length == 0 && currentItem == 'comunidad'" class="results">La comunidad aún no han realizado la votación de este proyecto de ley</p>
+		
+
+  <p class="results" *ngIf="votesSenators.length != 0 && currentItem == 'senado'">Resultados de la votación en tiempo real de los Senadores</p>
+
+  <p class="results" *ngIf="votesCitizens.length != 0 && currentItem == 'comunidad'">Resultados de la votación en tiempo real de la comunidad</p>
+	
+	<ion-grid [hidden]="currentItem != 'senado' || votesSenators.length == 0">
+		<ion-row>
+			<ion-col col-6 class="content-chart">
+				<canvas #doughnutCanvasYesSenate width="250" height="135"></canvas>
+				<p>{{ votesSenators['true'] }}%</p>
+				<strong>SI</strong>
+			</ion-col>
+			<ion-col col-6 class="content-chart">
+				<canvas #doughnutCanvasNoSenate width="250" height="135"></canvas>
+				<p>{{ votesSenators['false'] }}%</p>
+				<strong>NO</strong>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+
+	<ion-grid [hidden]="currentItem != 'senado' || votesSenators.length == 0">
+		<ion-row>
+			<ion-col col-6 class="content-chart">
+				<button ion-button class="button-senado" (click)="goVoters(true)">Ver votantes</button>
+			</ion-col>
+			<ion-col col-6 class="content-chart">
+				<button ion-button class="button-senado" (click)="goVoters(false)">Ver votantes</button>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+
+	<ion-grid [hidden]="currentItem != 'comunidad' || votesCitizens.length == 0">
+		<ion-row>
+			<ion-col col-6 class="content-chart">
+				<canvas #doughnutCanvasYesCommunity width="250" height="135"></canvas>
+				<p>{{ votesCitizens['true'] }}%</p>
+				<strong>SI</strong>
+			</ion-col>
+			<ion-col col-6 class="content-chart">
+				<canvas #doughnutCanvasNoCommunity width="250" height="135"></canvas>
+				<p>{{ votesCitizens['false'] }}%</p>
+				<strong>NO</strong>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+
+</ion-content>
+

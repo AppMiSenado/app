@@ -1,0 +1,26 @@
+page-survey-details {
+	#question{
+		display: block;
+		float: left;
+		width: 100%;
+		padding: 25px 16px;
+		background-color: color($colors, white);
+		margin-bottom: 25px;
+		img{
+			border-radius: 100%;
+			width: 65px;
+			height: 65px;
+			box-shadow: 3px 0px 15px rgba(0, 0, 0, 0.3);
+		}
+		.question{
+			margin-bottom: 0 !important;
+			font-size: 1.6rem;
+		}
+	}
+
+	.answers{
+		color: color($colors, white);
+		font-size: 1.7rem;
+		margin-bottom: 25px;
+	}
+}

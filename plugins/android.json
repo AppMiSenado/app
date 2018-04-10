@@ -1,0 +1,75 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "gov.senado.app"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "gov.senado.app"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "gov.senado.app"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "gov.senado.app"
+    },
+    "cordova-plugin-ionic-webview": {
+      "PACKAGE_NAME": "gov.senado.app"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "gov.senado.app"
+    },
+    "cordova-plugin-screen-orientation": {
+      "PACKAGE_NAME": "gov.senado.app"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "gov.senado.app"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "gov.senado.app"
+    },
+    "cordova-plugin-x-socialsharing": {
+      "PACKAGE_NAME": "gov.senado.app"
+    },
+    "ionic-plugin-keyboard": {
+      "PACKAGE_NAME": "gov.senado.app"
+    },
+    "onesignal-cordova-plugin": {
+      "PACKAGE_NAME": "gov.senado.app"
+    },
+    "twitter-connect-plugin": {
+      "FABRIC_KEY": "32125418c8337b604b8bdd8c33dedde8875ed794",
+      "TWITTER_KEY": "u7af60ehmxKWJ7OVVAaspGEqW",
+      "TWITTER_SECRET": "AzDXbKKEyjBar88xjEw1xL8UVfRzLONdlBUVC08oPmiWbsQHGg",
+      "PACKAGE_NAME": "gov.senado.app"
+    },
+    "uk.co.workingedge.phonegap.plugin.launchnavigator": {
+      "PACKAGE_NAME": "gov.senado.app"
+    },
+    "cordova-plugin-facebook4": {
+      "APP_ID": "334592377026426",
+      "APP_NAME": "Mi Senado",
+      "PACKAGE_NAME": "gov.senado.app"
+    },
+    "cordova-plugin-app-version": {
+      "PACKAGE_NAME": "gov.senado.app"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-actionsheet": {
+      "PACKAGE_NAME": "gov.senado.app"
+    },
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "gov.senado.app"
+    },
+    "es6-promise-plugin": {
+      "PACKAGE_NAME": "gov.senado.app"
+    }
+  }
+}

@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-navbar>
+  	<ion-buttons start class="fake-back">
+      <button ion-button  clear (click)="back()">
+        <ion-icon name="menu" class="icon-flecha3"></ion-icon>
+      </button>
+    </ion-buttons>
+    
+    <button ion-button menuToggle>
+      <ion-icon class="icon-hamburguesa"></ion-icon>
+      <span class="title">Sondeo</span>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-bounce  class="second-image" [class.background-image]="question.vote == null">
+	<div class="vote" [class.red]="question.vote == false" [class.green]="question.vote == true" *ngIf="question.vote != null">
+		<p>Yo voté <ng-container *ngIf="question.vote == true">SI</ng-container>  <ng-container *ngIf="question.vote == false">NO</ng-container> </p>
+	</div>
+
+	<div id="question">
+		<p class="title">{{ question.title }}</p>
+		<p class="question">{{ question.description }}</p>
+		<p *ngIf="question.link" (click)="goToLink(question.link)"><strong>Ver enlace</strong></p>
+	</div>
+	
+	<ng-container *ngIf="question.vote == null"> 	
+		<p class="answers">Responda a la pregunta anterior</p>
+
+		<button ion-button class="button-square green" [class.active]="myVote == true" (click)="myVote = true">Si</button>
+		<button ion-button class="button-square red" [class.active]="myVote == false" (click)="myVote = false">No</button>
+		
+		<br><br>
+		<button ion-button class="button-big" (click)="doSend()" [disabled]="myVote == null">Enviar</button>
+	</ng-container>	
+	
+	<ng-container *ngIf="question.vote != null"> 
+		<p class="answers dark">Hasta ahora nuestra comunidad vota así</p>
+
+		<ion-grid>
+			<ion-row>
+				<ion-col col-6 class="content-chart">
+					<canvas #doughnutCanvasYes width="250" height="135"></canvas>
+					<p>{{ this.percentage.true }}%</p>
+					<strong>SI</strong>
+				</ion-col>
+				<ion-col col-6 class="content-chart">
+					<canvas #doughnutCanvasNo width="250" height="135"></canvas>
+					<p>{{ this.percentage.false }}%</p>
+					<strong>NO</strong>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+		
+	</ng-container>	
+		
+</ion-content>
+

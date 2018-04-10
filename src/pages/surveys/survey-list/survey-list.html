@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+  	<ion-buttons start class="fake-back">
+      <button ion-button  clear (click)="back()">
+        <ion-icon name="menu" class="icon-flecha3"></ion-icon>
+      </button>
+    </ion-buttons>
+    
+    <button ion-button menuToggle>
+      <ion-icon class="icon-hamburguesa"></ion-icon>
+      <span class="title">Encuestas</span>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-bounce >
+	<ion-list no-lines class="list-borders">
+		<p *ngIf="surveys.length == 0" text-center><br>No hay encuestas en este momento</p>
+		<button text-wrap ion-item (click)="showSurvey(survey)" *ngFor="let survey of surveys" [class.active]="!survey.pivot.open">
+	    <ion-avatar item-start>
+	      <img-loader useImg [spinner]="false" [src]="survey.senator.image"></img-loader>
+	    </ion-avatar>
+	    <p>Por: {{ survey.senator.fullname }}</p>
+	    <h2>{{ survey.question }}</h2>
+	    <i class="icon-state icon-sin-voto" item-end></i>
+	  </button> 
+	 
+	</ion-list>
+</ion-content>

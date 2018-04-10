@@ -1,0 +1,19 @@
+page-calendar {
+	#content-title-calendar{
+		top: 54px;
+    z-index: 1;
+	}
+
+	#content-event-list{
+		position: relative;
+		z-index: 2;
+	}
+}
+
+.ios{
+	page-calendar {
+		#content-title-calendar{
+			top: 74px;
+		}
+	}
+}

@@ -1,0 +1,30 @@
+page-notifications-list {
+	i{
+		color: color($colors, gold);
+		font-size: 2rem;
+	}
+	h2{
+		text-transform: uppercase;
+	}
+	p{
+		color: color($colors, black) !important;
+		&.title{
+			font-size: 1.7rem;
+		}
+	}
+	span.date{
+		color: color($colors, grey) !important;
+		font-size: 1.3rem;
+		top: -5px;
+		position: relative;
+	}
+
+	ion-list{
+		margin-bottom: 0 !important;
+		.item-block{
+			&.active{
+				background-color: lighten(color($colors, gold), 42%);
+			}
+		}
+	}
+}

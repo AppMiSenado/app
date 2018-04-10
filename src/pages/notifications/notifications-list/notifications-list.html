@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+  	<ion-buttons start class="fake-back">
+      <button ion-button  clear (click)="back()">
+        <ion-icon name="menu" class="icon-flecha3"></ion-icon>
+      </button>
+    </ion-buttons>
+    
+    <button ion-button menuToggle>
+      <ion-icon class="icon-hamburguesa"></ion-icon>
+      <span class="title">Notificaciones</span>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-bounce >
+	<ion-list no-lines class="list-borders">
+		<p *ngIf="notifications.length == 0" text-center><br>No hay notificaciones en este momento</p>
+		<button ion-item (click)="showNotification(notification)" *ngFor="let notification of notifications" [class.active]="notification.open == 0">
+	    <h2>{{ notification.type.name }}</h2>
+	    <p class="title">{{ notification.title }}</p>
+	    <span class="date">{{ notification.date | date: 'MMMM d, y, h:mm:ss a' }}</span>
+	    <p>{{ notification.message }}</p>	
+	    <i class="icon-calendario" *ngIf="notification.type.name == 'Evento / Convocatoria'" item-end></i>
+	    <i class="icon-parlante" *ngIf="notification.type.name == 'Noticia'" item-end></i>
+	  </button> 
+	 
+	</ion-list>
+</ion-content>
+

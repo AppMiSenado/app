@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon class="icon-hamburguesa"></ion-icon>
+      <span class="title">Noticias</span>
+    </button>
+  </ion-navbar>
+  <ion-searchbar
+	  [(ngModel)]="search"
+	  (ngModelChange)="doSearch($event)"
+	  [showCancelButton]="shouldShowCancel"
+	  (ionCancel)="onCancel($event)"
+	  placeholder = "Buscar">
+	</ion-searchbar>
+</ion-header>
+
+<ion-content no-bounce >
+	<ion-list no-lines class="list-borders" [virtualScroll]="newsFiltered">
+		<button ion-item text-wrap (click)="goToLink(new.link)" *virtualItem="let new">
+			<ion-note>{{ new.published_at | date:'EEEE, d MMMM y - h:mm a' }}</ion-note>
+	    <h2>{{ new.name }}</h2>
+	  </button> 	 
+	</ion-list>
+</ion-content>

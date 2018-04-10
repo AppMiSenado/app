@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon class="icon-hamburguesa"></ion-icon>
+      <span class="title">Agenda</span>
+    </button>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="showConventions()">
+        <ion-icon class="icon-info"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<div id="content-title-calendar" *ngIf="title">   
+  <h3 class="year">{{ title | date:'y' }}</h3>
+  <h2 class="month">{{ title | date:'MMMM' }}</h2>
+</div>  
+
+<ion-content no-bounce has-bouncing="false">			
+	  <calendar [eventSource]="eventSource"
+      [calendarMode]="calendar.mode"
+      [currentDate]="calendar.currentDate"
+      (onCurrentDateChanged)="onCurrentDateChanged($event)"
+      (onRangeChanged)="reloadSource(startTime, endTime)"
+      (onEventSelected)="onEventSelected($event)"
+      (onTitleChanged)="onViewTitleChanged($event)"
+      (onTimeSelected)="onTimeSelected($event)"
+      [monthviewEventDetailTemplate]="template"
+      step="30">
+    </calendar>
+</ion-content>
+
+<ng-template #template let-selectedDate="selectedDate.events" let-noEventsLabel="noEventsLabel">
+  <div id="content-event-list">
+  <ion-list no-lines class="list-borders" *ngIf="selectedDate.length > 0">
+	    <button ion-item text-wrap *ngFor="let event of selectedDate" (click)="goToLink(event.link)">
+	    	<div class="date">{{event.startTime | date:'EEEE, d MMMM y - h:mm a'}}</div>
+	    	<h2>{{event.title}}</h2>
+	    </button>
+	  </ion-list>
+	   
+	  <p text-center *ngIf="selectedDate.length == 0">No hay eventos  para esta fecha</p>
+  </div>
+</ng-template>

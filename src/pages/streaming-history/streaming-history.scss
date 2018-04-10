@@ -1,0 +1,24 @@
+page-streaming-history {
+	#current-video{
+		top: 56px;
+	}
+	.item-block{
+		&.active{
+			background-color: lighten(color($colors, gold), 42%);
+		}
+	}
+	ion-list{
+		margin-bottom: 0 !important;
+	}
+	#content-video-list{
+		padding-bottom: 0 !important;
+	}
+}
+
+.ios{
+	page-streaming-history {
+		#current-video{
+			top: 74px;
+		}
+	}
+}

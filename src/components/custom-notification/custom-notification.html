@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+  	<ion-buttons start class="fake-back">
+      <button ion-button  clear (click)="back()">
+        <ion-icon name="menu" class="icon-flecha3"></ion-icon>
+      </button>
+    </ion-buttons>
+    
+    <button ion-button menuToggle>
+      <ion-icon class="icon-hamburguesa"></ion-icon>
+      <span class="title">Notificaciones</span>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-bounce >
+	<ion-list no-lines class="list-borders">
+		<ion-item text-wrap>
+	    <p class="title">{{ notification.title }}</p>
+	    <i class="icon-campana" item-end></i>
+	  </ion-item> 
+
+	  <p class="description">{{ notification.message }}</p>	
+
+    <img-loader *ngIf="notification.image" [src]="notification.image" useImg [spinner]="false"></img-loader>
+	</ion-list>
+</ion-content>
